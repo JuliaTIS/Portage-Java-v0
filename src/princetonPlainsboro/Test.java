@@ -51,7 +51,8 @@ class Test {
     
         dm.afficherFichesEntreDate(d1, d2);
         
-       
+       EcritureXML ecr= new EcritureXML(dm);
+       ecr.setXML();
         
         
    
