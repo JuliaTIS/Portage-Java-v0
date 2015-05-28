@@ -5,12 +5,15 @@ class Medecin extends Personne {
     private String specialite;
     private String tel;
     private String mdp;
+    private String identifiant;
+    
 
-    public Medecin(String nom, String prenom, String specialite, String tel, String mdp) {
+    public Medecin(String nom, String prenom, String specialite, String tel, String mdp, String identifiant) {
         super(nom, prenom);
         this.specialite = specialite;
         this.mdp = mdp;
         this.tel = tel;
+        this.identifiant=identifiant;
     }
 
     public void afficherPersonne() {

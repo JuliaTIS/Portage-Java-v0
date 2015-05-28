@@ -47,6 +47,7 @@ public class LectureXML {
         String telCourant="";
         String adresseCourant="";
         String mdpCourant="";
+        String identifiantCourant="";
         Code codeCourant = null;
         int coefCourant = 0;
         
@@ -98,7 +99,7 @@ public class LectureXML {
                             dossierCourant.ajouterFiche(f);
                         }
                         if (parser.getLocalName().equals("medecin")) {
-                            medecinCourant = new Medecin(nomCourant, prenomCourant, specialiteCourante,telCourant, mdpCourant );
+                            medecinCourant = new Medecin(nomCourant, prenomCourant, specialiteCourante,telCourant, mdpCourant, identifiantCourant );
                         }
                         if (parser.getLocalName().equals("nom")) {
                             nomCourant = donneesCourantes;
