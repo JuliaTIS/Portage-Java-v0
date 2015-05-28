@@ -50,11 +50,14 @@ public class EcritureXML {
         writer.writeStartElement("medecin"); // start medecin 
         
         writer.writeStartElement("nom");
-         
+          writer.writeCharacters(dm.getFiches().get(i).getMedecin().getNom());
         writer.writeEndElement();
         
         writer.writeStartElement("prenom");
+        
+          writer.writeCharacters(dm.getFiches().get(i).getMedecin().getPrenom());
          writer.writeEndElement();
+       
          
         writer.writeStartElement("specialite");
         writer.writeCharacters(dm.getFiches().get(i).getMedecin().getSpecialite());
@@ -65,27 +68,43 @@ public class EcritureXML {
         writer.writeStartElement("patient"); // start patient 
         
         writer.writeStartElement("nom");
+          writer.writeCharacters(dm.getFiches().get(i).getPatient().getNom());
         writer.writeEndElement();
         
         writer.writeStartElement("prenom");
+        
+          writer.writeCharacters(dm.getFiches().get(i).getPatient().getPrenom());
         writer.writeEndElement();
         
         writer.writeStartElement("secu");
+        
+        writer.writeCharacters(dm.getFiches().get(i).getPatient().getSecu());
         writer.writeEndElement();
         
         writer.writeEndElement(); // end patient
         
+         
+         
+         for (int j=0; j < dm.getFiches().get(i).getActes().size(); j++)
+         {
          writer.writeStartElement("acte"); // start acte 
          
-         // rajouter le parcours de vector pour les actes (boucle for ) 
-         
-         writer.writeStartElement("code");
+          writer.writeStartElement("code");
+          writer.writeCharacters(dm.getFiches().get(i).getActes().get(j).getCode().toString());
          writer.writeEndElement();
          
+         Integer coef1= dm.getFiches().get(i).getActes().get(j).getCoef();
+         
          writer.writeStartElement("coef");
+        writer.writeCharacters(coef1.toString());
          writer.writeEndElement();
          
          writer.writeEndElement(); // end acte 
+         }
+         
+        
+         
+         
          writer.writeEndElement(); // end fiche de soins 
          
          

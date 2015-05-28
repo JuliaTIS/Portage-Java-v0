@@ -10,10 +10,38 @@ class Acte {
         }
     
     public String toString() {
-        return code.toString() + ", coefficient : " + coef;
+        return getCode().toString() + ", coefficient : " + getCoef();
         }
     
     public double cout() {
-        return code.calculerCout(coef);
+        return getCode().calculerCout(getCoef());
         }
+
+    /**
+     * @return the code
+     */
+    public Code getCode() {
+        return code;
+    }
+
+    /**
+     * @param code the code to set
+     */
+    public void setCode(Code code) {
+        this.code = code;
+    }
+
+    /**
+     * @return the coef
+     */
+    public int getCoef() {
+        return coef;
+    }
+
+    /**
+     * @param coef the coef to set
+     */
+    public void setCoef(int coef) {
+        this.coef = coef;
+    }
     }
