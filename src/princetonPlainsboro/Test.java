@@ -67,39 +67,4 @@ class Test {
         dm.afficherFichesEntreDate(d1, d2);
     }
 
-/*<<<<<<< HEAD
-        EcritureXML ecr = new EcritureXML(dm);
-        ecr.setXML();
-=======
-            @Override
-            public void dispose() {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-        }; 
-       
-        // Récupère un PrinterJob
-      PrinterJob job = PrinterJob.getPrinterJob();
-      // Définit son contenu à imprimer
-      job.setPrintable((Printable)m1);
-      // Affiche une boîte de choix d'imprimante
-      if (job.printDialog()){
-         try {
-            // Effectue l'impression
-            job.print();
-         } catch (PrinterException ex) {
-            ex.printStackTrace();
-         }
-      }
-       
-       PageFormat pf = new PageFormat();
-       
-       
-     
-       
->>>>>>> origin/master
-
-    }
-
-*/
-    
 }
