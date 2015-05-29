@@ -47,7 +47,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="menu" alignment="1" pref="481" max="32767" attributes="0"/>
+              <Component id="menu" alignment="1" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -124,23 +124,23 @@
                                           <Group type="102" attributes="0">
                                               <Component id="ss" min="-2" pref="55" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="wss" min="-2" pref="166" max="-2" attributes="0"/>
+                                              <Component id="wssPatient" min="-2" pref="166" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="nom" min="-2" pref="55" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="wnom" min="-2" pref="165" max="-2" attributes="0"/>
+                                              <Component id="wnomPatient" min="-2" pref="165" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="prenom" min="-2" pref="55" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="wprenom" min="-2" pref="134" max="-2" attributes="0"/>
+                                              <Component id="wprenomPatient" min="-2" pref="134" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace min="0" pref="113" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="ajouter" min="-2" pref="135" max="-2" attributes="0"/>
+                                      <Component id="ajouterPatient" min="-2" pref="135" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -153,14 +153,14 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="nom" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="wnom" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="wnomPatient" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="prenom" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="wprenom" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="wprenomPatient" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="ss" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="wss" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="wssPatient" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -168,7 +168,7 @@
                                   <Component id="wadresse" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="32767" attributes="0"/>
-                              <Component id="ajouter" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="ajouterPatient" min="-2" pref="37" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -193,12 +193,12 @@
                         <Property name="text" type="java.lang.String" value="Adresse"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="wnom">
+                    <Component class="javax.swing.JTextField" name="wnomPatient">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="wss">
+                    <Component class="javax.swing.JTextField" name="wssPatient">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
@@ -214,17 +214,17 @@
                         <Property name="text" type="java.lang.String" value="Pr&#xe9;nom"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="wprenom">
+                    <Component class="javax.swing.JTextField" name="wprenomPatient">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="ajouter">
+                    <Component class="javax.swing.JButton" name="ajouterPatient">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="+ Ajouter"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ajouterActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ajouterPatientActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -411,10 +411,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="ajouter1" min="-2" pref="135" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="ajouter1" alignment="1" min="-2" pref="135" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
@@ -716,13 +713,10 @@
                                       <Component id="patientSoin" min="-2" pref="55" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                                       <Component id="jTextField3" min="-2" pref="114" max="-2" attributes="0"/>
-                                      <EmptySpace pref="146" max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="actesSoin" min="-2" pref="55" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="actesSoin" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace pref="146" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="32767" attributes="0"/>

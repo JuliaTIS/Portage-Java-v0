@@ -5,11 +5,13 @@
  */
 package princetonPlainsboro;
 
+import java.awt.print.Printable;
+
 /**
  *
  * @author Cyril
  */
-public abstract class Personne {
+public abstract class Personne implements Printable{
 
     private String nom;
     private String prenom;
@@ -18,6 +20,12 @@ public abstract class Personne {
         this.prenom = prenom;
         this.nom = nom;
 
+    }
+    
+    public String toString()
+    {
+     return this.nom + " " + this.prenom;
+    
     }
 
     public String getNom() {
