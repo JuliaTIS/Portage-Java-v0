@@ -66,20 +66,16 @@ class Test {
 
         dm.afficherFichesEntreDate(d1, d2);
 
-<<<<<<< HEAD
+
         EcritureXML ecr = new EcritureXML(dm);
         ecr.setXML();
-=======
-            @Override
-            public void dispose() {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-        }; 
+
+       EssaiMedecinImprimable med = new EssaiMedecinImprimable("Alice", "Rainaud","Codeuse pro", "tel","mdp", "id" ); 
        
-        // Récupère un PrinterJob
+      // Récupère un PrinterJob
       PrinterJob job = PrinterJob.getPrinterJob();
       // Définit son contenu à imprimer
-      job.setPrintable((Printable)m1);
+      job.setPrintable(med);
       // Affiche une boîte de choix d'imprimante
       if (job.printDialog()){
          try {
@@ -93,9 +89,10 @@ class Test {
        PageFormat pf = new PageFormat();
        
        
-     
        
->>>>>>> origin/master
+       
+  
+
 
     }
 }
