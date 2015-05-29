@@ -90,9 +90,9 @@ ArrayList patients = new ArrayList();
         dateSoin = new javax.swing.JLabel();
         medecinSoin = new javax.swing.JLabel();
         patientSoin = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        wDateActe = new javax.swing.JTextField();
+        wMedeinActe = new javax.swing.JTextField();
+        wPatientActe = new javax.swing.JTextField();
         actesSoin = new javax.swing.JLabel();
         ajouterSoin = new javax.swing.JButton();
         listeDeSoins = new javax.swing.JPanel();
@@ -523,12 +523,6 @@ ArrayList patients = new ArrayList();
         patientSoin.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         patientSoin.setText("Patient");
 
-        jTextField1.setText("jTextField1");
-
-        jTextField2.setText("jTextField2");
-
-        jTextField3.setText("jTextField3");
-
         actesSoin.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         actesSoin.setText("Actes");
 
@@ -546,15 +540,15 @@ ArrayList patients = new ArrayList();
                             .addGroup(ajoutDeSoinsLayout.createSequentialGroup()
                                 .addComponent(dateSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE))
+                                .addComponent(wDateActe, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE))
                             .addGroup(ajoutDeSoinsLayout.createSequentialGroup()
                                 .addComponent(medecinSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField2)))
+                                .addComponent(wMedeinActe)))
                         .addGap(40, 40, 40)
                         .addComponent(patientSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(16, 16, 16)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(wPatientActe, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(actesSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(146, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ajoutDeSoinsLayout.createSequentialGroup()
@@ -568,13 +562,13 @@ ArrayList patients = new ArrayList();
                 .addContainerGap()
                 .addGroup(ajoutDeSoinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dateSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(wDateActe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ajoutDeSoinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(medecinSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(patientSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(wMedeinActe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(wPatientActe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(actesSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
@@ -909,22 +903,19 @@ ArrayList patients = new ArrayList();
 
         Patient patient = new Patient(wnomPatient.getText(), wprenomPatient.getText(), wssPatient.getText(), wadresse.getText());
 
-        
-        patients.add(patient);
-        
-        /*DefaultListModel patients = new DefaultListModel();
-         patients.addElement(patient);
-         System.out.println(patients);
-         listepatient = new JList(patients);
-         listepatient.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-         listepatient.setSelectedIndex(0);
-         listepatient.addListSelectionListener(this);
-         listepatient.setVisibleRowCount(5);
-         JScrollPane listScrollPane = new JScrollPane(listepatient);
-         */
-     
-        
-        
+        System.out.println("1  "+patient);
+patients.add(patient);
+
+        System.out.println("2  " +patients);
+Patient[] patientTab = (Patient[]) patients.toArray(new Patient[patients.size()]);
+        System.out.println("3  "+patientTab);
+
+//JList<Patient> listepatient2 = new JList<Patient>(patientTab);
+
+       // System.out.println("4  "+listepatient2);
+                
+JList<Patient> listepatient = new JList<Patient>(patientTab);     
+
         wnomPatient.setText(null);
         wprenomPatient.setText(null);
         wssPatient.setText(null);
@@ -1060,9 +1051,6 @@ ArrayList patients = new ArrayList();
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextPane jTextPane1;
@@ -1096,8 +1084,11 @@ ArrayList patients = new ArrayList();
     private javax.swing.JLabel triSoin;
     private javax.swing.JButton validerCout;
     private javax.swing.JButton validerCout1;
+    private javax.swing.JTextField wDateActe;
     private javax.swing.JTextField wIdentifiantMedecin;
     private javax.swing.JTextField wMDPMedecin;
+    private javax.swing.JTextField wMedeinActe;
+    private javax.swing.JTextField wPatientActe;
     private javax.swing.JTextField wSpeMedecin;
     private javax.swing.JTextField wTelMedecin;
     private javax.swing.JTextField wadresse;

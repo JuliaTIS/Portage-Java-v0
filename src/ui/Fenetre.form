@@ -720,18 +720,18 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="dateSoin" min="-2" pref="55" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jTextField1" pref="114" max="32767" attributes="0"/>
+                                              <Component id="wDateActe" pref="114" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="medecinSoin" min="-2" pref="55" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jTextField2" max="32767" attributes="0"/>
+                                              <Component id="wMedeinActe" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                                       <Component id="patientSoin" min="-2" pref="55" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                                      <Component id="jTextField3" min="-2" pref="114" max="-2" attributes="0"/>
+                                      <Component id="wPatientActe" min="-2" pref="114" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="actesSoin" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
                               </Group>
@@ -750,14 +750,14 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="dateSoin" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="wDateActe" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="medecinSoin" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                                   <Component id="patientSoin" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="wMedeinActe" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="wPatientActe" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="actesSoin" min="-2" pref="26" max="-2" attributes="0"/>
@@ -787,20 +787,11 @@
                         <Property name="text" type="java.lang.String" value="Patient"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField1">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="wDateActe">
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField2">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField2"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="wMedeinActe">
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField3">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField3"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="wPatientActe">
                     </Component>
                     <Component class="javax.swing.JLabel" name="actesSoin">
                       <Properties>
