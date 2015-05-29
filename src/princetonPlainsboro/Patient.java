@@ -1,6 +1,6 @@
 package princetonPlainsboro;
 
-class Patient extends Personne {
+ public class Patient extends Personne {
 
     private String adresse;
     private String secu;
