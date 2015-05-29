@@ -1,5 +1,7 @@
 package princetonPlainsboro;
 
+import java.awt.print.Printable;
+
 class Medecin extends Personne {
 
     private String specialite;
