@@ -7,7 +7,10 @@ import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
 
-class Patient extends Personne {
+
+
+
+public class Patient extends Personne {
 
     private String adresse;
     private String secu;
@@ -92,6 +95,8 @@ class Patient extends Personne {
         }
         return retValue;
     }
+
+   
     }
 
 

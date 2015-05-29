@@ -7,7 +7,7 @@ import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
 
-class Medecin extends Personne {
+public class Medecin extends Personne {
 
     private String specialite;
     private String tel;

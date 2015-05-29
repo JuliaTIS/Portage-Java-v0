@@ -56,7 +56,7 @@ class FicheDeSoins implements Printable {
 
     public String toString() {
         String s = "Fiche de soins du " + date.toString() + "\n" + "- medecin : "
-                + medecin.toString() + "\n" + "- patient : " + patient.toString() + "\n" + "- actes medicaux : \n";
+                + medecin.toString() + "\r\n" + "- patient : " + patient.toString() + "\r\n" + "- actes medicaux : \n";
         for (int i = 0; i < getActes().size(); i++) {
             Acte a = getActes().get(i);
             s = s + a.toString();
