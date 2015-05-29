@@ -72,7 +72,7 @@ class Test {
 
        Medecin med = new Medecin("Alice", "Rainaut","Codeuse pro", "tel","mdp", "id" ); 
        
-       
+       /*
       // Récupère un PrinterJob
       PrinterJob job = PrinterJob.getPrinterJob();
       // Définit son contenu à imprimer
@@ -85,12 +85,41 @@ class Test {
          } catch (PrinterException ex) {
             ex.printStackTrace();
          }
+      }*/
+       
+      Secretaire sec= new Secretaire("Super", "Secretaire", "identifiant top secret", "mot de passe encore plus seceret"); 
+      Patient pat = new Patient("leonardo" , "di caprio", "secu 2", "las vegas cityyyyyy");
+      
+       
+     /*PrinterJob j= PrinterJob.getPrinterJob();
+      // Définit son contenu à imprimer
+      j.setPrintable(sec);
+      // Affiche une boîte de choix d'imprimante
+      if (j.printDialog()){
+         try {
+            // Effectue l'impression
+            j.print();
+         } catch (PrinterException ex) {
+            ex.printStackTrace();
+         }
+      }*/
+       
+      
+      
+     PrinterJob jb= PrinterJob.getPrinterJob();
+      // Définit son contenu à imprimer
+      jb.setPrintable(pat);
+      // Affiche une boîte de choix d'imprimante
+      if (jb.printDialog()){
+         try {
+            // Effectue l'impression
+            jb.print();
+         } catch (PrinterException ex) {
+            ex.printStackTrace();
+         }
       }
        
-       med.afficherPersonne();
-       
-       
-       
+      
        
   
 

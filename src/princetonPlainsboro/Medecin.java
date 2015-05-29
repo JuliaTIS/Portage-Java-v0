@@ -7,7 +7,7 @@ import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
 
-class Medecin extends Personne implements Printable {
+class Medecin extends Personne {
 
     private String specialite;
     private String tel;
@@ -31,7 +31,7 @@ class Medecin extends Personne implements Printable {
     }
 
     public String toString() {
-        return "Dr " + this.getPrenom() + " " + this.getNom() + ", " + this.specialite + "\n" + ""
+        return "Dr " + super.toString() + ", " + this.specialite + "\n" + ""
                 + " Telephone : " + this.tel;
     }
 
@@ -94,6 +94,7 @@ class Medecin extends Personne implements Printable {
                 graphics.setFont(new Font("Cambria", Font.BOLD, 18));
                 graphics.setColor(Color.BLUE);
                 graphics.drawString("Fiche Médecin\n \n \n \n \n ", x + marge, y + marge );
+                
                 
 
                 /* On écrit une ligne en noir de taille 14 */
