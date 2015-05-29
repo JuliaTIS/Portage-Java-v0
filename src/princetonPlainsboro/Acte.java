@@ -85,7 +85,7 @@ class Acte implements Printable {
 		/* On écrit une ligne de titre en rouge, en gras de taille 18 */
 		graphics.setFont(new Font("Arial", Font.BOLD, 18));
 		graphics.setColor(Color.RED);
-		graphics.drawString("Acte\n", x + marge, y+marge);
+		graphics.drawString("Acte\r \n", x + marge, y+marge);
 
 		/* On écrit une ligne en noir de taille 14 */
 		graphics.setFont(new Font("Arial", Font.PLAIN, 14));

@@ -83,7 +83,7 @@ class Test {
       // Récupère un PrinterJob
        PrinterJob job = PrinterJob.getPrinterJob();
       // Définit son contenu à imprimer
-      job.setPrintable(dm);
+      job.setPrintable(med);
       // Affiche une boîte de choix d'imprimante
       if (job.printDialog()){
          try {
