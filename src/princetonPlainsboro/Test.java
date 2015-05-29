@@ -10,7 +10,9 @@ import java.awt.Rectangle;
 import java.awt.Shape;
 import java.awt.image.ImageObserver;
 import java.awt.print.PageFormat;
+import java.awt.print.Printable;
 import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.text.AttributedCharacterIterator;
 
 class Test {
@@ -250,9 +252,22 @@ class Test {
             }
         }; 
        
+        // Récupère un PrinterJob
+      PrinterJob job = PrinterJob.getPrinterJob();
+      // Définit son contenu à imprimer
+      job.setPrintable((Printable)m1);
+      // Affiche une boîte de choix d'imprimante
+      if (job.printDialog()){
+         try {
+            // Effectue l'impression
+            job.print();
+         } catch (PrinterException ex) {
+            ex.printStackTrace();
+         }
+      }
+       
        PageFormat pf = new PageFormat();
        
-       m1.print(g, pf, 2);
        
      
        
