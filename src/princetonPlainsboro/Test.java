@@ -71,12 +71,19 @@ class Test {
         ecr.setXML();
 
        Medecin med = new Medecin("Alice", "Rainaut","Codeuse pro", "tel","mdp", "id" ); 
+        Date d= new Date (12,12,12);
+   
+    
+    Secretaire sec= new Secretaire("Super", "Secretaire", "identifiant top secret", "mot de passe encore plus seceret"); 
+      Patient pat = new Patient("leonardo" , "di caprio", "secu 2", "las vegas cityyyyyy");
+       FicheDeSoins fds= new FicheDeSoins(pat, med,d);
+       fds=dm.getFiches().get(0);
        
-       /*
+       
       // Récupère un PrinterJob
-      PrinterJob job = PrinterJob.getPrinterJob();
+       PrinterJob job = PrinterJob.getPrinterJob();
       // Définit son contenu à imprimer
-      job.setPrintable(med);
+      job.setPrintable(dm);
       // Affiche une boîte de choix d'imprimante
       if (job.printDialog()){
          try {
@@ -85,44 +92,27 @@ class Test {
          } catch (PrinterException ex) {
             ex.printStackTrace();
          }
-      }*/
        
-      Secretaire sec= new Secretaire("Super", "Secretaire", "identifiant top secret", "mot de passe encore plus seceret"); 
-      Patient pat = new Patient("leonardo" , "di caprio", "secu 2", "las vegas cityyyyyy");
-      
+       fds.afficher();
        
-     /*PrinterJob j= PrinterJob.getPrinterJob();
-      // Définit son contenu à imprimer
-      j.setPrintable(sec);
-      // Affiche une boîte de choix d'imprimante
-      if (j.printDialog()){
-         try {
-            // Effectue l'impression
-            j.print();
-         } catch (PrinterException ex) {
-            ex.printStackTrace();
-         }
-      }*/
        
-      
-      
-     PrinterJob jb= PrinterJob.getPrinterJob();
-      // Définit son contenu à imprimer
-      jb.setPrintable(pat);
-      // Affiche une boîte de choix d'imprimante
-      if (jb.printDialog()){
-         try {
-            // Effectue l'impression
-            jb.print();
-         } catch (PrinterException ex) {
-            ex.printStackTrace();
-         }
+       
       }
+       
+      
+      
+      
+
+    
+    
+    
+      
+    
        
       
        
   
 
 
-    }
-}
+    }}
+
