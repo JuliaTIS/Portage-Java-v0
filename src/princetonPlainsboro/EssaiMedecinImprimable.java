@@ -65,9 +65,53 @@ public class EssaiMedecinImprimable extends Personne implements Printable {
         return retValue;
     }
 
-    @Override
     public void afficherPersonne() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println(this.toString());
     }
-    
+
+    public String getSpecialite() {
+        return specialite;
+    }
+
+    public String toString() {
+        return "Dr " + this.getPrenom() + " " + this.getNom() + ", " + this.specialite + " tel : " + this.tel;
+    }
+
+    public boolean equals(Object o) {
+        if (o instanceof Medecin) {
+            Medecin p = (Medecin) o;
+            return this.getNom().equals(p.getNom()) && this.getPrenom().equals(p.getPrenom());
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * @return the tel
+     */
+    public String getTel() {
+        return tel;
+    }
+
+    /**
+     * @param tel the tel to set
+     */
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    /**
+     * @return the mdp
+     */
+    public String getMdp() {
+        return mdp;
+    }
+
+    /**
+     * @param mdp the mdp to set
+     */
+    public void setMdp(String mdp) {
+        this.mdp = mdp;
+    }
+   
 }

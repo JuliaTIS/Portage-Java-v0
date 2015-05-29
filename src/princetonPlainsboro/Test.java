@@ -72,6 +72,7 @@ class Test {
 
        EssaiMedecinImprimable med = new EssaiMedecinImprimable("Alice", "Rainaud","Codeuse pro", "tel","mdp", "id" ); 
        
+       
       // Récupère un PrinterJob
       PrinterJob job = PrinterJob.getPrinterJob();
       // Définit son contenu à imprimer
@@ -86,7 +87,7 @@ class Test {
          }
       }
        
-       PageFormat pf = new PageFormat();
+       
        
        
        
