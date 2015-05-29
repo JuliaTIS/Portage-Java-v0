@@ -45,17 +45,17 @@ public class EssaiMedecinImprimable extends Personne implements Printable {
 		int w = (int)pf.getImageableWidth();
 		int h = (int)pf.getImageableHeight();
 
-		/* Dessin d'un cadre gris clair*/
+		/* Dessin d'un cadre gris clair
 		graphics.setColor(Color.LIGHT_GRAY);
-		graphics.fillRect(x+10, y+10, w-20, h-20);
+		graphics.fillRect(x+10, y+10, w-20, h-20);*/
 
 		/* On écrit une ligne de titre en rouge, en gras de taille 18 */
-		graphics.setFont(new Font("Arial", Font.BOLD, 18));
-		graphics.setColor(Color.RED);
+		graphics.setFont(new Font("Cambria", Font.BOLD, 18));
+		graphics.setColor(Color.BLUE);
 		graphics.drawString("Fiche Médecin\n", x + marge, y+marge);
 
 		/* On écrit une ligne en noir de taille 14 */
-		graphics.setFont(new Font("Arial", Font.PLAIN, 14));
+		graphics.setFont(new Font("Cambria", Font.PLAIN, 14));
 		graphics.setColor(Color.BLACK);
 		graphics.drawString(this.toString(), x+marge, y+marge+20);
 

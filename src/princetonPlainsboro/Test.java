@@ -70,7 +70,7 @@ class Test {
         EcritureXML ecr = new EcritureXML(dm);
         ecr.setXML();
 
-       EssaiMedecinImprimable med = new EssaiMedecinImprimable("Alice", "Rainaud","Codeuse pro", "tel","mdp", "id" ); 
+       Medecin med = new Medecin("Alice", "Rainaut","Codeuse pro", "tel","mdp", "id" ); 
        
        
       // Récupère un PrinterJob
@@ -87,7 +87,7 @@ class Test {
          }
       }
        
-       
+       med.afficherPersonne();
        
        
        
