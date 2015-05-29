@@ -5,17 +5,28 @@
  */
 package ui;
 
+import java.awt.Component;
+import java.util.ArrayList;
+import java.util.Vector;
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
+import javax.swing.ListModel;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionListener;
+import princetonPlainsboro.*;
+
 /**
  *
  * @author Cyril
  */
 public class Fenetre extends javax.swing.JFrame {
 
+ArrayList patients = new ArrayList();
     /**
      * Creates new form Fenetre
      */
-        
-    String nomPatient;
     public Fenetre() {
         initComponents();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -46,7 +57,7 @@ public class Fenetre extends javax.swing.JFrame {
         ajouterPatient = new javax.swing.JButton();
         listeDePatients = new javax.swing.JPanel();
         listePatients = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList();
+        listepatient = new javax.swing.JList();
         ficheSoinPatient = new javax.swing.JButton();
         modifierPatient1 = new javax.swing.JButton();
         recherchePatient = new javax.swing.JButton();
@@ -56,13 +67,17 @@ public class Fenetre extends javax.swing.JFrame {
         ajoutPatients1 = new javax.swing.JPanel();
         nom1 = new javax.swing.JLabel();
         adresse1 = new javax.swing.JLabel();
-        wnom1 = new javax.swing.JTextField();
-        wss1 = new javax.swing.JTextField();
-        wadresse1 = new javax.swing.JTextField();
+        wnomMedecin = new javax.swing.JTextField();
+        wTelMedecin = new javax.swing.JTextField();
+        wSpeMedecin = new javax.swing.JTextField();
         prenom1 = new javax.swing.JLabel();
-        wprenom1 = new javax.swing.JTextField();
-        ajouter1 = new javax.swing.JButton();
+        wprenomMedecin = new javax.swing.JTextField();
+        ajouterMedecin = new javax.swing.JButton();
         ss2 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        wIdentifiantMedecin = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        wMDPMedecin = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         consulterMedecin = new javax.swing.JButton();
         modifierMedecin = new javax.swing.JButton();
@@ -75,9 +90,9 @@ public class Fenetre extends javax.swing.JFrame {
         dateSoin = new javax.swing.JLabel();
         medecinSoin = new javax.swing.JLabel();
         patientSoin = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        wDateActe = new javax.swing.JTextField();
+        wMedeinActe = new javax.swing.JTextField();
+        wPatientActe = new javax.swing.JTextField();
         actesSoin = new javax.swing.JLabel();
         ajouterSoin = new javax.swing.JButton();
         listeDeSoins = new javax.swing.JPanel();
@@ -125,21 +140,25 @@ public class Fenetre extends javax.swing.JFrame {
         nom.setText("Nom");
 
         ss.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        ss.setText("n° SS");
+        ss.setText("n° Sécu");
 
         adresse.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         adresse.setText("Adresse");
 
-        wnomPatient.setText("jTextField1");
+        wnomPatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wnomPatientActionPerformed(evt);
+            }
+        });
 
-        wssPatient.setText("jTextField1");
-
-        wadresse.setText("jTextField1");
+        wssPatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wssPatientActionPerformed(evt);
+            }
+        });
 
         prenom.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         prenom.setText("Prénom");
-
-        wprenomPatient.setText("jTextField1");
 
         ajouterPatient.setText("+ Ajouter");
         ajouterPatient.addActionListener(new java.awt.event.ActionListener() {
@@ -196,20 +215,15 @@ public class Fenetre extends javax.swing.JFrame {
                 .addGroup(ajoutPatientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(adresse, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(wadresse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(ajouterPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         listeDePatients.setBackground(new java.awt.Color(255, 255, 255));
         listeDePatients.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(102, 102, 255), null));
 
-        jList2.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        listePatients.setViewportView(jList2);
+        listePatients.setViewportView(listepatient);
 
         ficheSoinPatient.setText("+ Fiche de Soin");
         ficheSoinPatient.addActionListener(new java.awt.event.ActionListener() {
@@ -231,8 +245,6 @@ public class Fenetre extends javax.swing.JFrame {
                 recherchePatientActionPerformed(evt);
             }
         });
-
-        jTextField4.setText("jTextField4");
 
         consulterPatient.setText("Consulter");
         consulterPatient.addActionListener(new java.awt.event.ActionListener() {
@@ -312,26 +324,28 @@ public class Fenetre extends javax.swing.JFrame {
         adresse1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         adresse1.setText("Spécialité");
 
-        wnom1.setText("jTextField1");
-
-        wss1.setText("jTextField1");
-
-        wadresse1.setText("jTextField1");
+        wTelMedecin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wTelMedecinActionPerformed(evt);
+            }
+        });
 
         prenom1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         prenom1.setText("Prénom");
 
-        wprenom1.setText("jTextField1");
-
-        ajouter1.setText("+ Ajouter");
-        ajouter1.addActionListener(new java.awt.event.ActionListener() {
+        ajouterMedecin.setText("+ Ajouter");
+        ajouterMedecin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ajouter1ActionPerformed(evt);
+                ajouterMedecinActionPerformed(evt);
             }
         });
 
         ss2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         ss2.setText("Tel");
+
+        jLabel11.setText("Identifiant");
+
+        jLabel12.setText("MdP");
 
         javax.swing.GroupLayout ajoutPatients1Layout = new javax.swing.GroupLayout(ajoutPatients1);
         ajoutPatients1.setLayout(ajoutPatients1Layout);
@@ -340,27 +354,39 @@ public class Fenetre extends javax.swing.JFrame {
             .addGroup(ajoutPatients1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(ajoutPatients1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ajouter1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ajouterMedecin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(ajoutPatients1Layout.createSequentialGroup()
                         .addGroup(ajoutPatients1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(ajoutPatients1Layout.createSequentialGroup()
                                 .addComponent(nom1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(wnom1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(wnomMedecin, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(prenom1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(wprenom1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(wprenomMedecin, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(ajoutPatients1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ajoutPatients1Layout.createSequentialGroup()
-                                    .addComponent(adresse1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(wadresse1))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ajoutPatients1Layout.createSequentialGroup()
                                     .addComponent(ss2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(wss1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                    .addComponent(wTelMedecin, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ajoutPatients1Layout.createSequentialGroup()
+                                    .addGroup(ajoutPatients1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel11)
+                                        .addComponent(adresse1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel12))
+                                    .addGroup(ajoutPatients1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(ajoutPatients1Layout.createSequentialGroup()
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(wSpeMedecin))
+                                        .addGroup(ajoutPatients1Layout.createSequentialGroup()
+                                            .addGap(4, 4, 4)
+                                            .addGroup(ajoutPatients1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(ajoutPatients1Layout.createSequentialGroup()
+                                                    .addComponent(wIdentifiantMedecin, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(0, 0, Short.MAX_VALUE))
+                                                .addComponent(wMDPMedecin)))))))
+                        .addGap(0, 113, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         ajoutPatients1Layout.setVerticalGroup(
@@ -369,19 +395,27 @@ public class Fenetre extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(ajoutPatients1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nom1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(wnom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(wnomMedecin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(prenom1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(wprenom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(wprenomMedecin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ajoutPatients1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(wss1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(wTelMedecin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ss2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ajoutPatients1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(adresse1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(wadresse1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(ajouter1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(wSpeMedecin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ajoutPatients1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(wIdentifiantMedecin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(ajoutPatients1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ajoutPatients1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ajouterMedecin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(wMDPMedecin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel12))
                 .addContainerGap())
         );
 
@@ -440,7 +474,7 @@ public class Fenetre extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(75, Short.MAX_VALUE)
+                .addContainerGap(65, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(recherchePatient1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -489,12 +523,6 @@ public class Fenetre extends javax.swing.JFrame {
         patientSoin.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         patientSoin.setText("Patient");
 
-        jTextField1.setText("jTextField1");
-
-        jTextField2.setText("jTextField2");
-
-        jTextField3.setText("jTextField3");
-
         actesSoin.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         actesSoin.setText("Actes");
 
@@ -512,15 +540,15 @@ public class Fenetre extends javax.swing.JFrame {
                             .addGroup(ajoutDeSoinsLayout.createSequentialGroup()
                                 .addComponent(dateSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE))
+                                .addComponent(wDateActe, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE))
                             .addGroup(ajoutDeSoinsLayout.createSequentialGroup()
                                 .addComponent(medecinSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField2)))
+                                .addComponent(wMedeinActe)))
                         .addGap(40, 40, 40)
                         .addComponent(patientSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(16, 16, 16)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(wPatientActe, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(actesSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(146, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ajoutDeSoinsLayout.createSequentialGroup()
@@ -534,13 +562,13 @@ public class Fenetre extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(ajoutDeSoinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dateSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(wDateActe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ajoutDeSoinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(medecinSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(patientSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(wMedeinActe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(wPatientActe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(actesSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
@@ -872,9 +900,27 @@ public class Fenetre extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ajouterPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPatientActionPerformed
-        nomPatient = wnomPatient.getText();
-        System.out.println(nomPatient);
-        
+
+        Patient patient = new Patient(wnomPatient.getText(), wprenomPatient.getText(), wssPatient.getText(), wadresse.getText());
+
+        System.out.println("1  "+patient);
+patients.add(patient);
+
+        System.out.println("2  " +patients);
+Patient[] patientTab = (Patient[]) patients.toArray(new Patient[patients.size()]);
+        System.out.println("3  "+patientTab);
+
+//JList<Patient> listepatient2 = new JList<Patient>(patientTab);
+
+       // System.out.println("4  "+listepatient2);
+                
+JList<Patient> listepatient = new JList<Patient>(patientTab);     
+
+        wnomPatient.setText(null);
+        wprenomPatient.setText(null);
+        wssPatient.setText(null);
+        wadresse.setText(null);
+
     }//GEN-LAST:event_ajouterPatientActionPerformed
 
     private void ficheSoinPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ficheSoinPatientActionPerformed
@@ -893,9 +939,10 @@ public class Fenetre extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_consulterPatientActionPerformed
 
-    private void ajouter1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouter1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ajouter1ActionPerformed
+    private void ajouterMedecinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterMedecinActionPerformed
+
+        Medecin medecin = new Medecin (wnomMedecin.getText(), wprenomMedecin.getText(), wTelMedecin.getText(), wSpeMedecin.getText(), wIdentifiantMedecin.getText(), wMDPMedecin.getText());
+    }//GEN-LAST:event_ajouterMedecinActionPerformed
 
     private void consulterMedecinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterMedecinActionPerformed
         // TODO add your handling code here:
@@ -912,6 +959,18 @@ public class Fenetre extends javax.swing.JFrame {
     private void consulterSoinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterSoinActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_consulterSoinActionPerformed
+
+    private void wnomPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wnomPatientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_wnomPatientActionPerformed
+
+    private void wssPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wssPatientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_wssPatientActionPerformed
+
+    private void wTelMedecinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wTelMedecinActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_wTelMedecinActionPerformed
 
     /**
      * @param args the command line arguments
@@ -958,7 +1017,7 @@ public class Fenetre extends javax.swing.JFrame {
     private javax.swing.JPanel ajoutDeSoins;
     private javax.swing.JPanel ajoutPatients;
     private javax.swing.JPanel ajoutPatients1;
-    private javax.swing.JButton ajouter1;
+    private javax.swing.JButton ajouterMedecin;
     private javax.swing.JButton ajouterPatient;
     private javax.swing.JButton ajouterSoin;
     private javax.swing.JButton consulterMedecin;
@@ -974,6 +1033,8 @@ public class Fenetre extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -983,7 +1044,6 @@ public class Fenetre extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList jList1;
-    private javax.swing.JList jList2;
     private javax.swing.JList jList3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -991,9 +1051,6 @@ public class Fenetre extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextPane jTextPane1;
@@ -1004,6 +1061,7 @@ public class Fenetre extends javax.swing.JFrame {
     private javax.swing.JLabel listeDesActes1;
     private javax.swing.JScrollPane listePatients;
     private javax.swing.JScrollPane listePatients1;
+    private javax.swing.JList listepatient;
     private javax.swing.JPanel medecin;
     private javax.swing.JLabel medecinSoin;
     private javax.swing.JTabbedPane menu;
@@ -1026,13 +1084,18 @@ public class Fenetre extends javax.swing.JFrame {
     private javax.swing.JLabel triSoin;
     private javax.swing.JButton validerCout;
     private javax.swing.JButton validerCout1;
+    private javax.swing.JTextField wDateActe;
+    private javax.swing.JTextField wIdentifiantMedecin;
+    private javax.swing.JTextField wMDPMedecin;
+    private javax.swing.JTextField wMedeinActe;
+    private javax.swing.JTextField wPatientActe;
+    private javax.swing.JTextField wSpeMedecin;
+    private javax.swing.JTextField wTelMedecin;
     private javax.swing.JTextField wadresse;
-    private javax.swing.JTextField wadresse1;
-    private javax.swing.JTextField wnom1;
+    private javax.swing.JTextField wnomMedecin;
     private javax.swing.JTextField wnomPatient;
-    private javax.swing.JTextField wprenom1;
+    private javax.swing.JTextField wprenomMedecin;
     private javax.swing.JTextField wprenomPatient;
-    private javax.swing.JTextField wss1;
     private javax.swing.JTextField wssPatient;
     // End of variables declaration//GEN-END:variables
 }

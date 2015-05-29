@@ -167,9 +167,9 @@
                                   <Component id="adresse" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                                   <Component id="wadresse" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="ajouterPatient" min="-2" pref="37" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -184,7 +184,7 @@
                     <Component class="javax.swing.JLabel" name="ss">
                       <Properties>
                         <Property name="horizontalAlignment" type="int" value="4"/>
-                        <Property name="text" type="java.lang.String" value="n&#xb0; SS"/>
+                        <Property name="text" type="java.lang.String" value="n&#xb0; S&#xe9;cu"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="adresse">
@@ -194,19 +194,16 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="wnomPatient">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
-                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wnomPatientActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="wssPatient">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
-                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wssPatientActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="wadresse">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="prenom">
                       <Properties>
@@ -215,9 +212,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="wprenomPatient">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="ajouterPatient">
                       <Properties>
@@ -300,16 +294,10 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JList" name="jList2">
+                        <Component class="javax.swing.JList" name="listepatient">
                           <Properties>
                             <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                              <StringArray count="5">
-                                <StringItem index="0" value="Item 1"/>
-                                <StringItem index="1" value="Item 2"/>
-                                <StringItem index="2" value="Item 3"/>
-                                <StringItem index="3" value="Item 4"/>
-                                <StringItem index="4" value="Item 5"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                         </Component>
@@ -340,9 +328,6 @@
                       </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextField4">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField4"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="consulterPatient">
                       <Properties>
@@ -411,32 +396,50 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="ajouter1" alignment="1" min="-2" pref="135" max="-2" attributes="0"/>
+                                  <Component id="ajouterMedecin" alignment="1" min="-2" pref="135" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="nom1" min="-2" pref="55" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="wnom1" min="-2" pref="165" max="-2" attributes="0"/>
+                                              <Component id="wnomMedecin" min="-2" pref="165" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="prenom1" min="-2" pref="55" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="wprenom1" min="-2" pref="134" max="-2" attributes="0"/>
+                                              <Component id="wprenomMedecin" min="-2" pref="134" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="adresse1" min="-2" pref="55" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="wadresse1" max="32767" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
                                                   <Component id="ss2" min="-2" pref="55" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="wss1" min="-2" pref="166" max="-2" attributes="0"/>
+                                                  <Component id="wTelMedecin" min="-2" pref="166" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="1" attributes="0">
+                                                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="adresse1" min="-2" pref="55" max="-2" attributes="0"/>
+                                                      <Component id="jLabel12" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" attributes="0">
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="wSpeMedecin" max="32767" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Group type="102" attributes="0">
+                                                                  <Component id="wIdentifiantMedecin" min="-2" pref="166" max="-2" attributes="0"/>
+                                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                              </Group>
+                                                              <Component id="wMDPMedecin" max="32767" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
+                                                  </Group>
                                               </Group>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="113" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -449,22 +452,33 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="nom1" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="wnom1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="wnomMedecin" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="prenom1" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="wprenom1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="wprenomMedecin" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="wss1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="wTelMedecin" min="-2" max="-2" attributes="0"/>
                                   <Component id="ss2" min="-2" pref="26" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="adresse1" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="wadresse1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="wSpeMedecin" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="22" max="32767" attributes="0"/>
-                              <Component id="ajouter1" min="-2" pref="37" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                  <Component id="wIdentifiantMedecin" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="ajouterMedecin" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                                      <Component id="wMDPMedecin" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -483,20 +497,14 @@
                         <Property name="text" type="java.lang.String" value="Sp&#xe9;cialit&#xe9;"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="wnom1">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="wnomMedecin">
                     </Component>
-                    <Component class="javax.swing.JTextField" name="wss1">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="wTelMedecin">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wTelMedecinActionPerformed"/>
+                      </Events>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="wadresse1">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="wSpeMedecin">
                     </Component>
                     <Component class="javax.swing.JLabel" name="prenom1">
                       <Properties>
@@ -504,17 +512,14 @@
                         <Property name="text" type="java.lang.String" value="Pr&#xe9;nom"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="wprenom1">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="wprenomMedecin">
                     </Component>
-                    <Component class="javax.swing.JButton" name="ajouter1">
+                    <Component class="javax.swing.JButton" name="ajouterMedecin">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="+ Ajouter"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ajouter1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ajouterMedecinActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="ss2">
@@ -522,6 +527,20 @@
                         <Property name="horizontalAlignment" type="int" value="4"/>
                         <Property name="text" type="java.lang.String" value="Tel"/>
                       </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel11">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Identifiant"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="wIdentifiantMedecin">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel12">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="MdP"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="wMDPMedecin">
                     </Component>
                   </SubComponents>
                 </Container>
@@ -566,7 +585,7 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="75" max="32767" attributes="0"/>
+                              <EmptySpace pref="65" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="recherchePatient1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                   <Component id="jTextField6" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
@@ -701,18 +720,18 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="dateSoin" min="-2" pref="55" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jTextField1" pref="114" max="32767" attributes="0"/>
+                                              <Component id="wDateActe" pref="114" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="medecinSoin" min="-2" pref="55" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jTextField2" max="32767" attributes="0"/>
+                                              <Component id="wMedeinActe" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                                       <Component id="patientSoin" min="-2" pref="55" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                                      <Component id="jTextField3" min="-2" pref="114" max="-2" attributes="0"/>
+                                      <Component id="wPatientActe" min="-2" pref="114" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="actesSoin" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
                               </Group>
@@ -731,14 +750,14 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="dateSoin" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="wDateActe" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="medecinSoin" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                                   <Component id="patientSoin" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="wMedeinActe" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="wPatientActe" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="actesSoin" min="-2" pref="26" max="-2" attributes="0"/>
@@ -768,20 +787,11 @@
                         <Property name="text" type="java.lang.String" value="Patient"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField1">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="wDateActe">
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField2">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField2"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="wMedeinActe">
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField3">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField3"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="wPatientActe">
                     </Component>
                     <Component class="javax.swing.JLabel" name="actesSoin">
                       <Properties>
