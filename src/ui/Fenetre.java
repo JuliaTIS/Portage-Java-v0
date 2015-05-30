@@ -9,9 +9,13 @@ import java.awt.Component;
 import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.DefaultListModel;
+import javax.swing.Icon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextPane;
 import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionListener;
@@ -23,7 +27,10 @@ import princetonPlainsboro.*;
  */
 public class Fenetre extends javax.swing.JFrame {
 
-ArrayList patients = new ArrayList();
+    /*Pour le bouton Ajouter de Patient*/
+    ArrayList patients = new ArrayList(); //
+    DefaultListModel<String> dlm = new DefaultListModel<String>();
+
     /**
      * Creates new form Fenetre
      */
@@ -92,9 +99,10 @@ ArrayList patients = new ArrayList();
         patientSoin = new javax.swing.JLabel();
         wDateActe = new javax.swing.JTextField();
         wMedeinActe = new javax.swing.JTextField();
-        wPatientActe = new javax.swing.JTextField();
         actesSoin = new javax.swing.JLabel();
         ajouterSoin = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        infosPatient = new javax.swing.JTextArea();
         listeDeSoins = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
@@ -192,7 +200,7 @@ ArrayList patients = new ArrayList();
                                 .addComponent(prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(wprenomPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 113, Short.MAX_VALUE))
+                        .addGap(0, 154, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ajoutPatientsLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(ajouterPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -386,7 +394,7 @@ ArrayList patients = new ArrayList();
                                                     .addComponent(wIdentifiantMedecin, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addGap(0, 0, Short.MAX_VALUE))
                                                 .addComponent(wMDPMedecin)))))))
-                        .addGap(0, 113, Short.MAX_VALUE)))
+                        .addGap(0, 154, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         ajoutPatients1Layout.setVerticalGroup(
@@ -469,7 +477,7 @@ ArrayList patients = new ArrayList();
                         .addComponent(recherchePatient1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -528,6 +536,10 @@ ArrayList patients = new ArrayList();
 
         ajouterSoin.setText("+ Ajouter");
 
+        infosPatient.setColumns(20);
+        infosPatient.setRows(5);
+        jScrollPane3.setViewportView(infosPatient);
+
         javax.swing.GroupLayout ajoutDeSoinsLayout = new javax.swing.GroupLayout(ajoutDeSoins);
         ajoutDeSoins.setLayout(ajoutDeSoinsLayout);
         ajoutDeSoinsLayout.setHorizontalGroup(
@@ -535,6 +547,7 @@ ArrayList patients = new ArrayList();
             .addGroup(ajoutDeSoinsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(ajoutDeSoinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(actesSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(ajoutDeSoinsLayout.createSequentialGroup()
                         .addGroup(ajoutDeSoinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(ajoutDeSoinsLayout.createSequentialGroup()
@@ -546,15 +559,11 @@ ArrayList patients = new ArrayList();
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(wMedeinActe)))
                         .addGap(40, 40, 40)
-                        .addComponent(patientSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16)
-                        .addComponent(wPatientActe, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(actesSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(146, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ajoutDeSoinsLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ajouterSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                        .addComponent(patientSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ajouterSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         ajoutDeSoinsLayout.setVerticalGroup(
             ajoutDeSoinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -563,16 +572,19 @@ ArrayList patients = new ArrayList();
                 .addGroup(ajoutDeSoinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dateSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(wDateActe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(ajoutDeSoinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(medecinSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(patientSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(wMedeinActe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(wPatientActe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(actesSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(ajouterSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(ajoutDeSoinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ajoutDeSoinsLayout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(ajoutDeSoinsLayout.createSequentialGroup()
+                        .addGroup(ajoutDeSoinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(medecinSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(patientSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(wMedeinActe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(actesSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addComponent(ajouterSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -643,7 +655,7 @@ ArrayList patients = new ArrayList();
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(DateArrivee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                                 .addComponent(jButton2))
                             .addGroup(listeDeSoinsLayout.createSequentialGroup()
                                 .addGroup(listeDeSoinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -672,7 +684,7 @@ ArrayList patients = new ArrayList();
                             .addComponent(jButton2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                         .addComponent(modifierSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(consulterSoin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -735,7 +747,7 @@ ArrayList patients = new ArrayList();
                         .addComponent(nouveauCoutActe, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)))
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addContainerGap(167, Short.MAX_VALUE))
         );
         ghLayout.setVerticalGroup(
             ghLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -902,20 +914,19 @@ ArrayList patients = new ArrayList();
     private void ajouterPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPatientActionPerformed
 
         Patient patient = new Patient(wnomPatient.getText(), wprenomPatient.getText(), wssPatient.getText(), wadresse.getText());
+        patients.add(patient);
 
-        System.out.println("1  "+patient);
-patients.add(patient);
+        int taille = 1;
+        for (int i = 0; i < taille; i++) {
 
-        System.out.println("2  " +patients);
-Patient[] patientTab = (Patient[]) patients.toArray(new Patient[patients.size()]);
-        System.out.println("3  "+patientTab);
+            dlm.addElement(patient.getNom()+ " "+patient.getPrenom()+ " "+patient.getSecu() + " "+patient.getAdresse());
 
-//JList<Patient> listepatient2 = new JList<Patient>(patientTab);
+        }
+        taille++;
+        
+        listepatient.setModel(dlm);
 
-       // System.out.println("4  "+listepatient2);
-                
-JList<Patient> listepatient = new JList<Patient>(patientTab);     
-
+        
         wnomPatient.setText(null);
         wprenomPatient.setText(null);
         wssPatient.setText(null);
@@ -924,7 +935,17 @@ JList<Patient> listepatient = new JList<Patient>(patientTab);
     }//GEN-LAST:event_ajouterPatientActionPerformed
 
     private void ficheSoinPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ficheSoinPatientActionPerformed
-        // TODO add your handling code here:
+        
+    int selectedIndex = menu.getSelectedIndex();
+    selectedIndex = (selectedIndex + 2) % menu.getTabCount();
+    menu.setSelectedIndex(selectedIndex);
+    
+    infosPatient.setText(listepatient.getSelectedValue().toString());
+    //reste à faire un override de toString pour que chaque élément soit sur une ligne différente
+        
+    
+    
+    
     }//GEN-LAST:event_ficheSoinPatientActionPerformed
 
     private void modifierPatient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifierPatient1ActionPerformed
@@ -941,7 +962,7 @@ JList<Patient> listepatient = new JList<Patient>(patientTab);
 
     private void ajouterMedecinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterMedecinActionPerformed
 
-        Medecin medecin = new Medecin (wnomMedecin.getText(), wprenomMedecin.getText(), wTelMedecin.getText(), wSpeMedecin.getText(), wIdentifiantMedecin.getText(), wMDPMedecin.getText());
+        Medecin medecin = new Medecin(wnomMedecin.getText(), wprenomMedecin.getText(), wTelMedecin.getText(), wSpeMedecin.getText(), wIdentifiantMedecin.getText(), wMDPMedecin.getText());
     }//GEN-LAST:event_ajouterMedecinActionPerformed
 
     private void consulterMedecinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterMedecinActionPerformed
@@ -1028,6 +1049,7 @@ JList<Patient> listepatient = new JList<Patient>(patientTab);
     private javax.swing.JPanel fenetre;
     private javax.swing.JButton ficheSoinPatient;
     private javax.swing.JPanel gh;
+    private javax.swing.JTextArea infosPatient;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jComboBox1;
@@ -1050,6 +1072,7 @@ JList<Patient> listepatient = new JList<Patient>(patientTab);
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField6;
@@ -1088,7 +1111,6 @@ JList<Patient> listepatient = new JList<Patient>(patientTab);
     private javax.swing.JTextField wIdentifiantMedecin;
     private javax.swing.JTextField wMDPMedecin;
     private javax.swing.JTextField wMedeinActe;
-    private javax.swing.JTextField wPatientActe;
     private javax.swing.JTextField wSpeMedecin;
     private javax.swing.JTextField wTelMedecin;
     private javax.swing.JTextField wadresse;
