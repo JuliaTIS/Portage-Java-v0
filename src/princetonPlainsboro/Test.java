@@ -65,12 +65,8 @@ class Test {
         System.out.println("\n Fiches de soin entre" + d1.toString() + " et " + d2.toString());
 
         dm.afficherFichesEntreDate(d1, d2);
-        System.out.println("prout");
-    }
-
-<<<<<<< HEAD
-
-        EcritureXML ecr = new EcritureXML(dm);
+        
+          EcritureXML ecr = new EcritureXML(dm);
         ecr.setXML();
 
        Medecin med = new Medecin("Alice", "Rainaut","Codeuse pro", "tel","mdp", "id" ); 
@@ -98,6 +94,12 @@ class Test {
        
        fds.afficher();
        
+        
+    }
+
+
+
+      
        
        
       }
@@ -117,8 +119,4 @@ class Test {
   
 
 
-    }}
-
-=======
-}
->>>>>>> d33f434e5eb19aa4a5e260036541ce93699c1379
+    }

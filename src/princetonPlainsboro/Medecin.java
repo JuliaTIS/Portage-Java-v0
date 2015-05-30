@@ -103,4 +103,18 @@ public class Medecin extends Personne {
         return retValue;
     }
 
+    /**
+     * @return the identifiant
+     */
+    public String getIdentifiant() {
+        return identifiant;
+    }
+
+    /**
+     * @param identifiant the identifiant to set
+     */
+    public void setIdentifiant(String identifiant) {
+        this.identifiant = identifiant;
+    }
+
 }

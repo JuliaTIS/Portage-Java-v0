@@ -55,7 +55,19 @@ public class EcritureXML {
                 writer.writeStartElement("specialite");
                 writer.writeCharacters(dm.getFiches().get(i).getMedecin().getSpecialite());
                 writer.writeEndElement();
+                
+                  writer.writeStartElement("identifiant");
+                writer.writeCharacters(dm.getFiches().get(i).getMedecin().getIdentifiant());
+                writer.writeEndElement();
+                
+                  writer.writeStartElement("mdp");
+                writer.writeCharacters(dm.getFiches().get(i).getMedecin().getMdp());
+                writer.writeEndElement();
 
+                 writer.writeStartElement("telephone");
+                writer.writeCharacters(dm.getFiches().get(i).getMedecin().getTel());
+                writer.writeEndElement();
+                
                 writer.writeEndElement(); // end de medecin 
 
                 writer.writeStartElement("patient"); // start patient 
@@ -72,6 +84,11 @@ public class EcritureXML {
                 writer.writeStartElement("secu");
 
                 writer.writeCharacters(dm.getFiches().get(i).getPatient().getSecu());
+                writer.writeEndElement();
+                
+                writer.writeStartElement("adresse");
+
+                writer.writeCharacters(dm.getFiches().get(i).getPatient().getAdresse());
                 writer.writeEndElement();
 
                 writer.writeEndElement(); // end patient

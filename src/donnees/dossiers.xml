@@ -7,10 +7,15 @@
         <nom>Bono</nom>
         <prenom>Jean</prenom>
         <specialite>ORL</specialite>
+        <telephone>06 99 06 75 42</telephone>
+        <identifiant>identifiant1</identifiant>
+        <mdp>mdp1</mdp>
     </medecin>
     <patient>
         <nom>Track</nom>
         <prenom>Pat</prenom>
+        <adresse>34 Rue des tulipes</adresse>
+        <secu>3456778976554321244</secu>
     </patient>
     <acte>
         <code>CS</code>
@@ -32,10 +37,15 @@
         <nom>Deblouze</nom>
         <prenom>Agathe</prenom>
         <specialite>Cardiologue</specialite>
+        <telephone>06 99 06 75 42</telephone>
+        <identifiant>identifiant2</identifiant>
+        <mdp>mdp2</mdp>
     </medecin>
     <patient>
         <nom>Bole</nom>
         <prenom>Pat</prenom>
+        <adresse>35 Rue des tulipes</adresse>
+        <secu>3459878976554321244</secu>
     </patient>
     <acte>
         <code>CSC</code>
@@ -53,10 +63,14 @@
         <nom>Deblouze</nom>
         <prenom>Agathe</prenom>
         <specialite>Cardiologue</specialite>
+        <identifiant>identifiant3</identifiant>
+        <mdp>mdp3</mdp>
     </medecin>
     <patient>
         <nom>Bole</nom>
         <prenom>Maggy</prenom>
+        <adresse>33 Rue des tulipes</adresse>
+        <secu>3456778976554321244</secu>
     </patient>
     <acte>
         <code>CSC</code>
@@ -70,10 +84,14 @@
         <nom>Heget</nom>
         <prenom>Yves</prenom>
         <specialite>Gynecologie</specialite>
+        <identifiant>identifiant4</identifiant>
+        <mdp>mdp4</mdp>
     </medecin>
     <patient>
         <nom>Bole</nom>
         <prenom>Maggy</prenom>
+        <adresse>36 Rue des tulipes</adresse>
+        <secu>3409878976554321244</secu>
     </patient>
     <acte>
         <code>KE</code>
