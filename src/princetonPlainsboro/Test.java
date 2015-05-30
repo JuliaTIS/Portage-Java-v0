@@ -65,6 +65,7 @@ class Test {
         System.out.println("\n Fiches de soin entre" + d1.toString() + " et " + d2.toString());
 
         dm.afficherFichesEntreDate(d1, d2);
+<<<<<<< HEAD
         
           EcritureXML ecr = new EcritureXML(dm);
         ecr.setXML();
@@ -120,3 +121,9 @@ class Test {
 
 
     }
+=======
+        System.out.println("prout");
+    }
+
+}
+>>>>>>> origin/master
