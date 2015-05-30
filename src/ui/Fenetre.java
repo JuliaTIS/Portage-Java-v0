@@ -941,7 +941,9 @@ public class Fenetre extends javax.swing.JFrame {
     menu.setSelectedIndex(selectedIndex);
     
     infosPatient.setText(listepatient.getSelectedValue().toString());
-    //reste à faire un override de toString pour que chaque élément soit sur une ligne différente
+   
+     
+    //reste à faire un override de toString pour que chaque élément soit sur une ligne différente si possible
         
     
     
