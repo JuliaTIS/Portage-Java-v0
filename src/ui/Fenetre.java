@@ -30,11 +30,10 @@ public class Fenetre extends javax.swing.JFrame {
     /*Pour le bouton Ajouter de Patient*/
     ArrayList patients = new ArrayList(); //
     DefaultListModel<String> dlmPat = new DefaultListModel<String>();
-    
+
     /*Pour le bouton Ajouter de Medecin*/
     ArrayList medecins = new ArrayList();
     DefaultListModel<String> dlmMed = new DefaultListModel<String>();
-    
 
     /**
      * Creates new form Fenetre
@@ -537,6 +536,11 @@ public class Fenetre extends javax.swing.JFrame {
         actesSoin.setText("Actes");
 
         ajouterSoin.setText("+ Ajouter");
+        ajouterSoin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ajouterSoinActionPerformed(evt);
+            }
+        });
 
         infosPatient.setColumns(20);
         infosPatient.setRows(5);
@@ -711,7 +715,7 @@ public class Fenetre extends javax.swing.JFrame {
 
         menu.addTab("Soins", soin);
 
-        gh.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Modifier le Coût de l'Acte", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.black));
+        gh.setBorder(javax.swing.BorderFactory.createTitledBorder("Modifier le Coût de l'Acte"));
 
         listeDesActes.setText("Choix de l'acte");
 
@@ -912,14 +916,13 @@ public class Fenetre extends javax.swing.JFrame {
         int taille = 1;
         for (int i = 0; i < taille; i++) {
 
-            dlmPat.addElement(patient.getNom()+ " "+patient.getPrenom()+ " "+patient.getSecu() + " "+patient.getAdresse());
+            dlmPat.addElement(patient.getNom() + " " + patient.getPrenom() + " " + patient.getSecu() + " " + patient.getAdresse());
 
         }
         taille++;
-        
+
         listepatient.setModel(dlmPat);
 
-        
         wnomPatient.setText(null);
         wprenomPatient.setText(null);
         wssPatient.setText(null);
@@ -928,19 +931,15 @@ public class Fenetre extends javax.swing.JFrame {
     }//GEN-LAST:event_ajouterPatientActionPerformed
 
     private void ficheSoinPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ficheSoinPatientActionPerformed
-        
-    int selectedIndex = menu.getSelectedIndex();
-    selectedIndex = (selectedIndex + 2) % menu.getTabCount();
-    menu.setSelectedIndex(selectedIndex);
-    
-    infosPatient.setText(listepatient.getSelectedValue().toString());
-   
-     
+
+        int selectedIndex = menu.getSelectedIndex();
+        selectedIndex = (selectedIndex + 2) % menu.getTabCount();
+        menu.setSelectedIndex(selectedIndex);
+
+        infosPatient.setText(listepatient.getSelectedValue().toString());
+
     //reste à faire un override de toString pour que chaque élément soit sur une ligne différente si possible
-        
-    
-    
-    
+
     }//GEN-LAST:event_ficheSoinPatientActionPerformed
 
     private void modifierPatient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifierPatient1ActionPerformed
@@ -963,14 +962,13 @@ public class Fenetre extends javax.swing.JFrame {
         int taille = 1;
         for (int i = 0; i < taille; i++) {
 
-            dlmMed.addElement(medecin.getNom()+ " "+medecin.getPrenom()+ " "+medecin.getSpecialite() + " "+medecin.getTel());
+            dlmMed.addElement(medecin.getNom() + " " + medecin.getPrenom() + " " + medecin.getSpecialite() + " " + medecin.getTel());
             //reste à faire la partie qui enregistre le médecin dans l'Xml mais j'ai peur de tout casser je verrai avec Julia
         }
         taille++;
-        
+
         listemedecin.setModel(dlmMed);
 
-        
         wnomMedecin.setText(null);
         wprenomMedecin.setText(null);
         wTelMedecin.setText(null);
@@ -1006,6 +1004,11 @@ public class Fenetre extends javax.swing.JFrame {
     private void wTelMedecinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wTelMedecinActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_wTelMedecinActionPerformed
+
+    private void ajouterSoinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterSoinActionPerformed
+
+
+    }//GEN-LAST:event_ajouterSoinActionPerformed
 
     /**
      * @param args the command line arguments

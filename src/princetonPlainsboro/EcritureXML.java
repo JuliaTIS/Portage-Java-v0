@@ -56,15 +56,15 @@ public class EcritureXML {
                 writer.writeCharacters(dm.getFiches().get(i).getMedecin().getSpecialite());
                 writer.writeEndElement();
                 
-                  writer.writeStartElement("identifiant");
+                writer.writeStartElement("identifiant");
                 writer.writeCharacters(dm.getFiches().get(i).getMedecin().getIdentifiant());
                 writer.writeEndElement();
                 
-                  writer.writeStartElement("mdp");
+                writer.writeStartElement("mdp");
                 writer.writeCharacters(dm.getFiches().get(i).getMedecin().getMdp());
                 writer.writeEndElement();
 
-                 writer.writeStartElement("telephone");
+                writer.writeStartElement("telephone");
                 writer.writeCharacters(dm.getFiches().get(i).getMedecin().getTel());
                 writer.writeEndElement();
                 

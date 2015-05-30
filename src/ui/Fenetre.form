@@ -803,6 +803,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="+ Ajouter"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ajouterSoinActionPerformed"/>
+                      </Events>
                     </Component>
                     <Container class="javax.swing.JScrollPane" name="jScrollPane3">
                       <AuxValues>
@@ -1046,9 +1049,7 @@
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder title="Modifier le Co&#xfb;t de l&apos;Acte">
-                          <Color PropertyName="color" blue="0" green="0" id="black" palette="1" red="0" type="palette"/>
-                        </TitledBorder>
+                        <TitledBorder title="Modifier le Co&#xfb;t de l&apos;Acte"/>
                       </Border>
                     </Property>
                   </Properties>

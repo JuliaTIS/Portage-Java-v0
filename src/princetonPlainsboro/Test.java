@@ -65,65 +65,43 @@ class Test {
         System.out.println("\n Fiches de soin entre" + d1.toString() + " et " + d2.toString());
 
         dm.afficherFichesEntreDate(d1, d2);
-<<<<<<< HEAD
-        
-          EcritureXML ecr = new EcritureXML(dm);
+
+        EcritureXML ecr = new EcritureXML(dm);
         ecr.setXML();
 
-       Medecin med = new Medecin("Alice", "Rainaut","Codeuse pro", "tel","mdp", "id" ); 
-        Date d= new Date (12,12,12);
-   
-    
-    Secretaire sec= new Secretaire("Super", "Secretaire", "identifiant top secret", "mot de passe encore plus seceret"); 
-      Patient pat = new Patient("leonardo" , "di caprio", "secu 2", "las vegas cityyyyyy");
-       FicheDeSoins fds= new FicheDeSoins(pat, med,d);
-       fds=dm.getFiches().get(0);
-       
-       
-      // Récupère un PrinterJob
-       PrinterJob job = PrinterJob.getPrinterJob();
-      // Définit son contenu à imprimer
-      job.setPrintable(med);
-      // Affiche une boîte de choix d'imprimante
-      if (job.printDialog()){
-         try {
-            // Effectue l'impression
-            job.print();
-         } catch (PrinterException ex) {
-            ex.printStackTrace();
-         }
-       
-       fds.afficher();
-       
+        Medecin med = new Medecin("Alice", "Rainaut", "Codeuse pro", "tel", "mdp", "id");
+        Date d = new Date(12, 12, 12);
+
+        Secretaire sec = new Secretaire("Super", "Secretaire", "identifiant top secret", "mot de passe encore plus seceret");
+        Patient pat = new Patient("leonardo", "di caprio", "secu 2", "las vegas cityyyyyy");
+        FicheDeSoins fds = new FicheDeSoins(pat, med, d);
+        fds = dm.getFiches().get(0);
+
+       /* // Récupère un PrinterJob
+        PrinterJob job = PrinterJob.getPrinterJob();
+        // Définit son contenu à imprimer
+        job.setPrintable(med);
+        // Affiche une boîte de choix d'imprimante
+        if (job.printDialog()) {
+            try {
+                // Effectue l'impression
+                job.print();
+            } catch (PrinterException ex) {
+                ex.printStackTrace();
+            }
+
+            fds.afficher();
+*/
+        DossierMedical dm1= new DossierMedical();
+        dm1.ajouterFiche(fds);
+        EcritureXML ecri= new EcritureXML(dm1);
+        ecri.setXML();
+       // OK pour que la base de données XML soit generée a partir d'un dossier medical =) 
+      // par contre on a toujours un probleme pour stocker les secretaire... Dans un autre fichier XML ? 
         
-    }
-
-
-
-      
-       
-       
-      }
-       
-      
-      
-      
-
-    
-    
-    
-      
-    
-       
-      
-       
-  
-
+        
+        
+        }
 
     }
-=======
-        System.out.println("prout");
-    }
 
-}
->>>>>>> origin/master

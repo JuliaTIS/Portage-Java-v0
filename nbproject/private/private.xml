@@ -4,11 +4,25 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Doc%20Lucie/Cours/TIS3/Portage-Java-v0/src/princetonPlainsboro/Medecin.java</file>
-            <file>file:/D:/Doc%20Lucie/Cours/TIS3/Portage-Java-v0/src/princetonPlainsboro/Test.java</file>
-            <file>file:/D:/Doc%20Lucie/Cours/TIS3/Portage-Java-v0/src/princetonPlainsboro/Patient.java</file>
-            <file>file:/D:/Doc%20Lucie/Cours/TIS3/Portage-Java-v0/src/ui/Fenetre.java</file>
-            <file>file:/D:/Doc%20Lucie/Cours/TIS3/Portage-Java-v0/src/donnees/dossiers.xml</file>
+            <file>file:/C:/Users/Cyril/Documents/JULIA/Projet%20Java/Portage-Java-v0/src/princetonPlainsboro/Code.java</file>
+            <file>file:/C:/Users/Cyril/Documents/JULIA/Projet%20Java/Portage-Java-v0/src/princetonPlainsboro/Test.java</file>
+            <file>file:/C:/Users/Cyril/Documents/JULIA/Projet%20Java/Portage-Java-v0/src/princetonPlainsboro/EcritureXML.java</file>
+            <file>file:/C:/Users/Cyril/Documents/JULIA/Projet%20Java/Portage-Java-v0/src/donnees/test.xml</file>
+            <file>file:/C:/Users/Cyril/Documents/JULIA/Projet%20Java/Portage-Java-v0/src/princetonPlainsboro/DossierMedical.java</file>
+            <file>file:/C:/Users/Cyril/Documents/JULIA/Projet%20Java/Portage-Java-v0/src/princetonPlainsboro/Date.java</file>
+            <file>file:/C:/Users/Cyril/Documents/JULIA/Projet%20Java/Portage-Java-v0/src/princetonPlainsboro/ComparaisonFichesDates.java</file>
+            <file>file:/C:/Users/Cyril/Documents/JULIA/Projet%20Java/Portage-Java-v0/src/ui/Fenetre.java</file>
+            <file>file:/C:/Users/Cyril/Documents/JULIA/Projet%20Java/Portage-Java-v0/src/princetonPlainsboro/Patient.java</file>
+            <file>file:/C:/Users/Cyril/Documents/JULIA/Projet%20Java/Portage-Java-v0/src/princetonPlainsboro/Impression.java</file>
+            <file>file:/C:/Users/Cyril/Documents/JULIA/Projet%20Java/Portage-Java-v0/src/princetonPlainsboro/ComparaisonFiches.java</file>
+            <file>file:/C:/Users/Cyril/Documents/JULIA/Projet%20Java/Portage-Java-v0/src/princetonPlainsboro/FicheDeSoins.java</file>
+            <file>file:/C:/Users/Cyril/Documents/JULIA/Projet%20Java/Portage-Java-v0/src/princetonPlainsboro/LectureXML.java</file>
+            <file>file:/C:/Users/Cyril/Documents/JULIA/Projet%20Java/Portage-Java-v0/src/donnees/dossiers.xml</file>
+            <file>file:/C:/Users/Cyril/Documents/JULIA/Projet%20Java/Portage-Java-v0/src/princetonPlainsboro/Acte.java</file>
+            <file>file:/C:/Users/Cyril/Documents/JULIA/Projet%20Java/Portage-Java-v0/src/princetonPlainsboro/Medecin.java</file>
+            <file>file:/C:/Users/Cyril/Documents/JULIA/Projet%20Java/Portage-Java-v0/src/princetonPlainsboro/Secretaire.java</file>
+            <file>file:/C:/Users/Cyril/Documents/JULIA/Projet%20Java/Portage-Java-v0/src/princetonPlainsboro/Personne.java</file>
+            <file>file:/C:/Users/Cyril/Documents/JULIA/Projet%20Java/Portage-Java-v0/src/princetonPlainsboro/ComparaisonFichesCouts.java</file>
         </group>
     </open-files>
 </project-private>
