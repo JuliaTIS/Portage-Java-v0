@@ -31,7 +31,7 @@ public class Medecin extends Personne {
     }
 
     public String toString() {
-        return "Dr " + super.toString() + ", " + this.specialite + "\n" + ""
+        return "Dr " + super.toString() + ", " + this.specialite + "\r\n" + ""
                 + " Telephone : " + this.tel;
     }
 
@@ -75,6 +75,7 @@ public class Medecin extends Personne {
     @Override
     public int print(Graphics graphics, PageFormat pf, int i) throws PrinterException {
         int retValue = Printable.NO_SUCH_PAGE;
+        String newLine = System.getProperty("line.separator");
         switch (i) {
             case 0: {
                 /* On définit une marge pour l'impression */
@@ -86,21 +87,15 @@ public class Medecin extends Personne {
                 int w = (int) pf.getImageableWidth();
                 int h = (int) pf.getImageableHeight();
 
-                /* Dessin d'un cadre gris clair
-                 graphics.setColor(Color.LIGHT_GRAY);
-                 graphics.fillRect(x+10, y+10, w-20, h-20);*/
-
                 /* On écrit une ligne de titre en rouge, en gras de taille 18 */
                 graphics.setFont(new Font("Cambria", Font.BOLD, 18));
                 graphics.setColor(Color.BLUE);
-                graphics.drawString("Fiche Médecin\n \n \n \n \n ", x + marge, y + marge );
-                
-                
-
+                graphics.drawString("Fiche Médecin " + newLine, x + marge, y + marge);
+             
                 /* On écrit une ligne en noir de taille 14 */
                 graphics.setFont(new Font("Cambria", Font.PLAIN, 14));
                 graphics.setColor(Color.BLACK);
-                graphics.drawString(this.toString(), x + marge, y + marge + 20);
+                graphics.drawString(this.toString(), x + marge, y + marge + 90);
 
                 retValue = Printable.PAGE_EXISTS;
             }
