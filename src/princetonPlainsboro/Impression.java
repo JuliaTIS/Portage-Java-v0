@@ -15,7 +15,7 @@ import java.awt.print.PrinterJob;
 
 /**
  *
- * @author Cyril
+ * @author DULAC Julia, MUSCIO Cassandra, RAINAUT Jennifer, TREBOSSEN Lucie
  */
 public class Impression extends PrinterJob{
 

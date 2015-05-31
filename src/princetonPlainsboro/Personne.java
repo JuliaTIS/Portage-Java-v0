@@ -9,7 +9,7 @@ import java.awt.print.Printable;
 
 /**
  *
- * @author Cyril
+ * @author DULAC Julia, MUSCIO Cassandra, RAINAUT Jennifer, TREBOSSEN Lucie
  */
 public abstract class Personne implements Printable{
 
