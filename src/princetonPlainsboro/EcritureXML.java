@@ -11,7 +11,7 @@ import java.io.*;
 
 /**
  *
- * @author dulacj
+ * @author DULAC Julia, MUSCIO Cassandra, RAINAUT Jennifer, TREBOSSEN Lucie
  */
 public class EcritureXML {
 
