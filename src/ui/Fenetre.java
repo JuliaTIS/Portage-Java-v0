@@ -5,19 +5,28 @@
  */
 package ui;
 
+import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.FlowLayout;
 import java.util.ArrayList;
 import java.util.Vector;
+import javax.swing.BoxLayout;
+import static javax.swing.BoxLayout.Y_AXIS;
 import javax.swing.DefaultListModel;
 import javax.swing.Icon;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
+import javax.swing.SwingUtilities;
 import javax.swing.event.ListSelectionListener;
 import princetonPlainsboro.*;
 
@@ -30,11 +39,10 @@ public class Fenetre extends javax.swing.JFrame {
     /*Pour le bouton Ajouter de Patient*/
     ArrayList patients = new ArrayList(); //
     DefaultListModel<String> dlmPat = new DefaultListModel<String>();
-    
+
     /*Pour le bouton Ajouter de Medecin*/
     ArrayList medecins = new ArrayList();
     DefaultListModel<String> dlmMed = new DefaultListModel<String>();
-    
 
     /**
      * Creates new form Fenetre
@@ -42,6 +50,7 @@ public class Fenetre extends javax.swing.JFrame {
     public Fenetre() {
         initComponents();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -172,6 +181,8 @@ public class Fenetre extends javax.swing.JFrame {
 
         prenom.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         prenom.setText("Prénom");
+
+        wprenomPatient.setText(" ");
 
         ajouterPatient.setText("+ Ajouter");
         ajouterPatient.addActionListener(new java.awt.event.ActionListener() {
@@ -711,7 +722,7 @@ public class Fenetre extends javax.swing.JFrame {
 
         menu.addTab("Soins", soin);
 
-        gh.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Modifier le Coût de l'Acte", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.black));
+        gh.setBorder(javax.swing.BorderFactory.createTitledBorder("Modifier le Coût de l'Acte"));
 
         listeDesActes.setText("Choix de l'acte");
 
@@ -905,46 +916,56 @@ public class Fenetre extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ajouterPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPatientActionPerformed
-
+            
         Patient patient = new Patient(wnomPatient.getText(), wprenomPatient.getText(), wssPatient.getText(), wadresse.getText());
         patients.add(patient);
 
         int taille = 1;
         for (int i = 0; i < taille; i++) {
 
-            dlmPat.addElement(patient.getNom()+ " "+patient.getPrenom()+ " "+patient.getSecu() + " "+patient.getAdresse());
+            dlmPat.addElement(patient.getNom() + " " + patient.getPrenom() + " " + patient.getSecu() + " " + patient.getAdresse());
 
         }
         taille++;
         
         listepatient.setModel(dlmPat);
 
-        
         wnomPatient.setText(null);
         wprenomPatient.setText(null);
         wssPatient.setText(null);
-        wadresse.setText(null);
-
+        wadresse.setText(null);   
     }//GEN-LAST:event_ajouterPatientActionPerformed
 
     private void ficheSoinPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ficheSoinPatientActionPerformed
-        
-    int selectedIndex = menu.getSelectedIndex();
-    selectedIndex = (selectedIndex + 2) % menu.getTabCount();
-    menu.setSelectedIndex(selectedIndex);
-    
-    infosPatient.setText(listepatient.getSelectedValue().toString());
-   
-     
+
+        int selectedIndex = menu.getSelectedIndex();
+        selectedIndex = (selectedIndex + 2) % menu.getTabCount();
+        menu.setSelectedIndex(selectedIndex);
+
+        infosPatient.setText(listepatient.getSelectedValue().toString());
+
     //reste à faire un override de toString pour que chaque élément soit sur une ligne différente si possible
-        
-    
-    
-    
+
     }//GEN-LAST:event_ficheSoinPatientActionPerformed
 
     private void modifierPatient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifierPatient1ActionPerformed
-        // TODO add your handling code here:
+        /*SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                //On crée une nouvelle instance de notre JDialog
+                dialog = new JDialog();
+                dialog.setLocationRelativeTo(null);
+                dialog.setSize(300, 100);//On lui donne une taille
+                dialog.setTitle("Modifier Patient"); //On lui donne un titre
+
+                dialog.setLayout(new BoxLayout(dialog, Y_AXIS));
+                JTextField nom = new JTextField();
+                nom.setText("Nom");
+                JTextField prenom = new JTextField();
+                prenom.setText("Prénom");
+                
+
+            }
+        });*/
     }//GEN-LAST:event_modifierPatient1ActionPerformed
 
     private void recherchePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recherchePatientActionPerformed
@@ -952,8 +973,47 @@ public class Fenetre extends javax.swing.JFrame {
     }//GEN-LAST:event_recherchePatientActionPerformed
 
     private void consulterPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterPatientActionPerformed
-        // TODO add your handling code here:
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                //On crée une nouvelle instance de notre JDialog
+                dialog = new JDialog();
+                dialog.setLocationRelativeTo(null);
+                dialog.setSize(300, 100);//On lui donne une taille
+                dialog.setTitle("Fiche Patient"); //On lui donne un titre
+
+                dialog.setLayout(new BorderLayout());
+                JButton retour = new JButton("Retour");
+                JButton imprimer = new JButton("Imprimer");
+                JPanel boutons = new JPanel();
+                boutons.setLayout(new FlowLayout());
+                dialog.add(boutons, BorderLayout.CENTER);
+                boutons.add(retour);
+                boutons.add(imprimer);
+
+                JTextArea infos = new JTextArea();
+                dialog.add(infos, BorderLayout.NORTH);
+                int selectedIndex = menu.getSelectedIndex();
+                menu.setSelectedIndex(selectedIndex);
+
+                infos.setText(listepatient.getSelectedValue().toString());
+
+                dialog.setVisible(true);//On la rend visible
+
+                setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //On dit à l'application de se fermer lors du clic sur la croix
+
+                retour.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        retourActionPerformed(evt);
+                    }
+                });
+
+            }
+        });
     }//GEN-LAST:event_consulterPatientActionPerformed
+
+    private void retourActionPerformed(java.awt.event.ActionEvent evt) {
+            dialog.dispose();
+    }
 
     private void ajouterMedecinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterMedecinActionPerformed
 
@@ -963,14 +1023,15 @@ public class Fenetre extends javax.swing.JFrame {
         int taille = 1;
         for (int i = 0; i < taille; i++) {
 
-            dlmMed.addElement(medecin.getNom()+ " "+medecin.getPrenom()+ " "+medecin.getSpecialite() + " "+medecin.getTel());
+            dlmMed.addElement(medecin.getNom() + " " + medecin.getPrenom() + " " + medecin.getSpecialite() + " " + medecin.getTel());
             //reste à faire la partie qui enregistre le médecin dans l'Xml mais j'ai peur de tout casser je verrai avec Julia
         }
         taille++;
+
+        System.out.println(wnomPatient.getText());
         
         listemedecin.setModel(dlmMed);
 
-        
         wnomMedecin.setText(null);
         wprenomMedecin.setText(null);
         wTelMedecin.setText(null);
@@ -980,7 +1041,22 @@ public class Fenetre extends javax.swing.JFrame {
     }//GEN-LAST:event_ajouterMedecinActionPerformed
 
     private void consulterMedecinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consulterMedecinActionPerformed
-        // TODO add your handling code here:
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                //On crée une nouvelle instance de notre JDialog
+                JDialog dialog = new JDialog();
+                dialog.setLocationRelativeTo(null);
+                dialog.setSize(300, 200);//On lui donne une taille
+                dialog.setTitle("Fiche Médecin"); //On lui donne un titre
+
+                dialog.setLayout(new BorderLayout());
+
+                dialog.setVisible(true);//On la rend visible
+
+                setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //On dit à l'application de se fermer lors du clic sur la croix
+            }
+        });
+
     }//GEN-LAST:event_consulterMedecinActionPerformed
 
     private void modifierMedecinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifierMedecinActionPerformed
@@ -1042,6 +1118,7 @@ public class Fenetre extends javax.swing.JFrame {
         });
     }
 
+    JDialog dialog;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Actes;
     private javax.swing.JTextField CoutDuNouvelActe;

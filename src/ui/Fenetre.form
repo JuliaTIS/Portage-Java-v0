@@ -212,6 +212,9 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="wprenomPatient">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value=" "/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="ajouterPatient">
                       <Properties>
@@ -310,6 +313,9 @@
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ficheSoinPatientActionPerformed"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Fenetre_ficheSoinPatient"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JButton" name="modifierPatient1">
                       <Properties>
@@ -1046,9 +1052,7 @@
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder title="Modifier le Co&#xfb;t de l&apos;Acte">
-                          <Color PropertyName="color" blue="0" green="0" id="black" palette="1" red="0" type="palette"/>
-                        </TitledBorder>
+                        <TitledBorder title="Modifier le Co&#xfb;t de l&apos;Acte"/>
                       </Border>
                     </Property>
                   </Properties>
