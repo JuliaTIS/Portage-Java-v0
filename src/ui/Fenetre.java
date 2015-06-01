@@ -184,8 +184,6 @@ public class Fenetre extends javax.swing.JFrame {
         prenom.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         prenom.setText("Prénom");
 
-        wprenomPatient.setText(" ");
-
         ajouterPatient.setText("+ Ajouter");
         ajouterPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -988,6 +986,7 @@ public class Fenetre extends javax.swing.JFrame {
                 boutons.add(valider);
 
                 JPanel infosPatient = new JPanel();
+<<<<<<< HEAD
                 infosPatient.setLayout(new BoxLayout(infosPatient, Y_AXIS));
                 dialog.add(infosPatient, BorderLayout.CENTER);
 
@@ -999,6 +998,30 @@ public class Fenetre extends javax.swing.JFrame {
                 infosPatient.add(nomModif);
 
                 dialog.setVisible(true);//On la rend visible
+=======
+                infosPatient.setLayout(new BoxLayout(infosPatient,Y_AXIS));
+                dialog1.add(infosPatient, BorderLayout.CENTER);
+                res = listepatient.getSelectedIndex();
+                
+                nomModif = new JTextField();
+                nomModif.setText((String)patients.get(res).getNom());
+                
+                prenomModif = new JTextField();
+                prenomModif.setText((String)patients.get(res).getPrenom());
+                
+                nSSModif = new JTextField();
+                nSSModif.setText((String)patients.get(res).getSecu());
+                
+                adresseModif = new JTextField();
+                adresseModif.setText((String)patients.get(res).getAdresse());
+                
+                infosPatient.add(nomModif);
+                infosPatient.add(prenomModif);
+                infosPatient.add(nSSModif);
+                infosPatient.add(adresseModif);
+                              
+                dialog1.setVisible(true);//On la rend visible
+>>>>>>> e5ecba976e1e520af155746f978b5cee7532eb9d
                 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //On dit à l'application de se fermer lors du clic sur la croix
 
                 valider.addActionListener(new java.awt.event.ActionListener() {
@@ -1011,8 +1034,22 @@ public class Fenetre extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_modifierPatient1ActionPerformed
 
+<<<<<<< HEAD
     private void validerActionPerformed(java.awt.event.ActionEvent evt) {
         //
+=======
+    private void validerActionPerformed(java.awt.event.ActionEvent evt){
+        patients.get(res).setNom(nomModif.getText());
+        patients.get(res).setPrenom(prenomModif.getText());
+        patients.get(res).setSecu(nSSModif.getText());
+        patients.get(res).setAdresse(adresseModif.getText());
+        
+        dlmPat.remove(res);
+        dlmPat.add(res, patients.get(res).getNom()+ " " + patients.get(res).getPrenom()+ " / " + patients.get(res).getSecu());
+        listepatient.setModel(dlmPat);  
+        
+        dialog1.dispose();
+>>>>>>> e5ecba976e1e520af155746f978b5cee7532eb9d
     }
     private void recherchePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recherchePatientActionPerformed
         // TODO add your handling code here:
@@ -1181,6 +1218,11 @@ public class Fenetre extends javax.swing.JFrame {
         });
     }
 
+    int res;
+    JTextField nomModif;
+    JTextField prenomModif;
+    JTextField nSSModif;
+    JTextField adresseModif;
     JDialog dialog;
     JDialog dialog1;
     // Variables declaration - do not modify//GEN-BEGIN:variables
