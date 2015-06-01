@@ -249,6 +249,15 @@ public class Fenetre extends javax.swing.JFrame {
         listeDePatients.setBackground(new java.awt.Color(255, 255, 255));
         listeDePatients.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(102, 102, 255), null));
 
+        listepatient.setModel(new javax.swing.AbstractListModel() {
+
+            LectureXML patientJList = new LectureXML("dossiers.xml");
+            DossierMedical dm = patientJList.getDossier();
+
+            String[] strings = { dm.getFiches().get(0).getPatient().getNom() + " "+ dm.getFiches().get(0).getPatient().getPrenom() + " "+ dm.getFiches().get(0).getPatient().getAdresse()};
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
         listePatients.setViewportView(listepatient);
 
         ficheSoinPatient.setText("+ Fiche de Soin");
@@ -923,6 +932,17 @@ public class Fenetre extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ajouterPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPatientActionPerformed
+<<<<<<< HEAD
+=======
+
+        Patient patient = new Patient(wnomPatient.getText(), wprenomPatient.getText(), wssPatient.getText(), wadresse.getText());
+        nomPatient.add(wnomPatient.getText());
+        prenomPatient.add(wprenomPatient.getText());
+        nSSPatient.add(wssPatient.getText());
+        adressePatient.add(wadresse.getText());
+        
+        //patients.add(patient);
+>>>>>>> origin/master
 
         Patient patient = new Patient(wnomPatient.getText(), wprenomPatient.getText(), wssPatient.getText(), wadresse.getText());
         patients.add(patient);
@@ -930,7 +950,11 @@ public class Fenetre extends javax.swing.JFrame {
         int taille = 1;
         for (int i = 0; i < taille; i++) {
 
+<<<<<<< HEAD
+            dlmPat.addElement(patient.getNom() + " " + patient.getPrenom() + " " + patient.getSecu() + " / " + patient.getAdresse());
+=======
             dlmPat.addElement(patient.getNom() + " " + patient.getPrenom() + " / " + patient.getSecu());
+>>>>>>> origin/master
 
         }
         taille++;
@@ -940,9 +964,20 @@ public class Fenetre extends javax.swing.JFrame {
         wnomPatient.setText(null);
         wprenomPatient.setText(null);
         wssPatient.setText(null);
+<<<<<<< HEAD
         wadresse.setText(null);
 
 
+=======
+<<<<<<< HEAD
+        wadresse.setText(null);
+=======
+        wadresse.setText(null);  
+        
+        
+        
+>>>>>>> origin/master
+>>>>>>> origin/master
     }//GEN-LAST:event_ajouterPatientActionPerformed
 
     private void ficheSoinPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ficheSoinPatientActionPerformed
@@ -1136,8 +1171,8 @@ public class Fenetre extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Fenetre().setVisible(true);
+            public void run() {                new Fenetre().setVisible(true);
+
             }
         });
     }
@@ -1236,3 +1271,4 @@ public class Fenetre extends javax.swing.JFrame {
     private javax.swing.JTextField wssPatient;
     // End of variables declaration//GEN-END:variables
 }
+
