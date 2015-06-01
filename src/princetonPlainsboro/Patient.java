@@ -29,14 +29,7 @@ public class Patient extends Personne {
     public Patient(String nom, String prenom, String secu, String adresse) {
         super(nom, prenom);
         this.adresse = adresse;
-        if (testSecu(secu)){
-            this.secu = secu;
-            System.out.println("Okaayyyyyyyyyy");
-        }
-        else {
-            System.out.println("Mauvais Patient qui craint");
-            
-        }
+        this.secu = secu;
         
     }
 
