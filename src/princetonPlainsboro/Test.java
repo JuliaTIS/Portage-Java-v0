@@ -18,14 +18,14 @@ import java.text.AttributedCharacterIterator;
 class Test {
 
     public static void main(String[] args) throws PrinterException {
-  /*   LectureXML test = new LectureXML("dossiers.xml");
+     LectureXML test = new LectureXML("dossiers.xml");
         DossierMedical dm = test.getDossier();
         dm.afficher();
 
         System.out.println("\n********\n");
-*/
+
         Patient p1 = new Patient("De vil", "Cruella", "214097855130917", "Rue des pommiers");
-/*        System.out.println("> cout de " + p1.toString() + " : " + dm.coutPatient(p1));
+        System.out.println("> cout de " + p1.toString() + " : " + dm.coutPatient(p1));
 
         System.out.println("\n********\n");
 
@@ -82,7 +82,6 @@ class Test {
        
 
             fds.afficher();
-
         /* DossierMedical dm1= new DossierMedical();
         dm1.ajouterFiche(fds);
         EcritureXML ecri= new EcritureXML(dm1);
@@ -90,7 +89,7 @@ class Test {
        // OK pour que la base de données XML soit generée a partir d'un dossier medical =) 
       // par contre on a toujours un probleme pour stocker les secretaire... Dans un autre fichier XML ? 
         
-        */
+*/        
         
         
         }

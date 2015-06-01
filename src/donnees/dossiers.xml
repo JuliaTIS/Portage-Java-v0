@@ -15,7 +15,7 @@
         <nom>Track</nom>
         <prenom>Pat</prenom>
         <adresse>34 Rue des tulipes</adresse>
-        <secu>3456778976554321244</secu>
+        <secu>214097855130917L</secu>
     </patient>
     <acte>
         <code>CS</code>
@@ -45,7 +45,7 @@
         <nom>Bole</nom>
         <prenom>Pat</prenom>
         <adresse>35 Rue des tulipes</adresse>
-        <secu>3459878976554321244</secu>
+        <secu>214097855130917</secu>
     </patient>
     <acte>
         <code>CSC</code>
@@ -70,7 +70,7 @@
         <nom>Bole</nom>
         <prenom>Maggy</prenom>
         <adresse>33 Rue des tulipes</adresse>
-        <secu>3456778976554321244</secu>
+        <secu>214097855130917</secu>
     </patient>
     <acte>
         <code>CSC</code>
@@ -91,7 +91,7 @@
         <nom>Bole</nom>
         <prenom>Maggy</prenom>
         <adresse>36 Rue des tulipes</adresse>
-        <secu>3409878976554321244</secu>
+        <secu>214097855130917</secu>
     </patient>
     <acte>
         <code>KE</code>
