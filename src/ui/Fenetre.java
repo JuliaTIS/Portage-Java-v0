@@ -39,7 +39,6 @@ public class Fenetre extends javax.swing.JFrame {
 
     /*Pour le bouton Ajouter de Patient*/
     ArrayList<Patient> patients = new ArrayList<Patient>();
-
     DefaultListModel<String> dlmPat = new DefaultListModel<String>();
 
     /*Pour le bouton Ajouter de Medecin*/
@@ -53,6 +52,7 @@ public class Fenetre extends javax.swing.JFrame {
         initComponents();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        importPatientFromXML();
     }
 
     /**
@@ -921,7 +921,17 @@ public class Fenetre extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    private void importPatientFromXML(){
+        
+        listepatient.setModel(dlmPat);
+        
+        LectureXML test = new LectureXML("dossiers.xml");
+        DossierMedical dm = test.getDossier();
+        dlmPat.addElement(dm.getFiches().get(0).getPatient().getNom() + " "+dm.getFiches().get(0).getPatient().getPrenom());
+        dlmPat.addElement(dm.getFiches().get(1).getPatient().getNom() + " "+dm.getFiches().get(1).getPatient().getAdresse());
+    }
+    
+   
     private void ajouterPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPatientActionPerformed
  
         //patients.add(patient);
@@ -936,8 +946,7 @@ public class Fenetre extends javax.swing.JFrame {
         }
         taille++;
 
-        listepatient.setModel(dlmPat);
-
+        listepatient.setListData(dlmPat.toArray());
         wnomPatient.setText(null);
         wprenomPatient.setText(null);
         wssPatient.setText(null);
@@ -1160,7 +1169,10 @@ public class Fenetre extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {                new Fenetre().setVisible(true);
+            public void run() {                
+                
+                new Fenetre().setVisible(true);
+                
 
             }
         });
