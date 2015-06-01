@@ -24,9 +24,9 @@ class Test {
 
         System.out.println("\n********\n");
 
-        Patient p1 = new Patient("Bole", "Pat", "Rue des pommiers", "02996754324567");
+        Patient p1 = new Patient("Bole", "Pat", "291097855130917", "Rue des pommiers");
         System.out.println("> cout de " + p1.toString() + " : " + dm.coutPatient(p1));
-
+        
         System.out.println("\n********\n");
 
         String spe = "Cardiologue";
@@ -99,9 +99,12 @@ class Test {
        // OK pour que la base de données XML soit generée a partir d'un dossier medical =) 
       // par contre on a toujours un probleme pour stocker les secretaire... Dans un autre fichier XML ? 
         
-        
-        
+        System.out.println(p1.testSecu());
+        int n = 102;
+        System.out.println(n/100);
         }
+    
+    
 
     }
 
