@@ -13,6 +13,7 @@ public class ComparaisonFichesCouts implements ComparaisonFiches {
  * inférieure dans le où le coût de la fiche 2 est supérieur à celui de la fiche 1
  * égal à 0 si les coûts sont égaux
  */
+    @Override
     public int comparer(FicheDeSoins fiche1, FicheDeSoins fiche2) {
         Double c1 = new Double(fiche1.coutTotal());
         Double c2 = new Double(fiche2.coutTotal());

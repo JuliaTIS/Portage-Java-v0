@@ -25,6 +25,7 @@ public class Date implements Comparable {
      * Méthode d'affichage de la date dans la console
      * @return Retourne une chaîne de caractères affichant la date
      */
+    @Override
     public String toString() {
         return jour + "/" + mois + "/" + annee;
         }
@@ -36,6 +37,7 @@ public class Date implements Comparable {
      * true si les deux dates sont identiques
      * false dans le cas contraire
      */
+    @Override
     public boolean equals(Object o) {
         if (o instanceof Date) {
             Date d = (Date)o;
@@ -50,6 +52,7 @@ public class Date implements Comparable {
      * @param o précondition ; 'o' est une instance de 'Date'
      * @return Retourne un entier représentant la différence de temps entre les deux dates, soit en années, soit en mois, soit en jours
      */
+    @Override
     public int compareTo(Object o) {
         Date d = (Date)o;
         if (annee != d.annee)

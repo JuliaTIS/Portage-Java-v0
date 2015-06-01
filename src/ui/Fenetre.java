@@ -37,7 +37,12 @@ import princetonPlainsboro.*;
 public class Fenetre extends javax.swing.JFrame {
 
     /*Pour le bouton Ajouter de Patient*/
-    ArrayList patients = new ArrayList(); //
+    ArrayList patients = new ArrayList();
+    ArrayList nomPatient = new ArrayList();
+    ArrayList prenomPatient = new ArrayList();
+    ArrayList nSSPatient = new ArrayList();
+    ArrayList adressePatient = new ArrayList();
+    
     DefaultListModel<String> dlmPat = new DefaultListModel<String>();
 
     /*Pour le bouton Ajouter de Medecin*/
@@ -932,22 +937,38 @@ public class Fenetre extends javax.swing.JFrame {
     private void ajouterPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPatientActionPerformed
 
         Patient patient = new Patient(wnomPatient.getText(), wprenomPatient.getText(), wssPatient.getText(), wadresse.getText());
-        patients.add(patient);
+        nomPatient.add(wnomPatient.getText());
+        prenomPatient.add(wprenomPatient.getText());
+        nSSPatient.add(wssPatient.getText());
+        adressePatient.add(wadresse.getText());
+        
+        //patients.add(patient);
 
         int taille = 1;
         for (int i = 0; i < taille; i++) {
 
+<<<<<<< HEAD
             dlmPat.addElement(patient.getNom() + " " + patient.getPrenom() + " " + patient.getSecu() + " / " + patient.getAdresse());
+=======
+            dlmPat.addElement(patient.getNom() + " " + patient.getPrenom() + " / " + patient.getSecu());
+>>>>>>> origin/master
 
         }
         taille++;
 
-        listepatient.setModel(dlmPat);
+        listepatient.setModel(dlmPat); 
 
         wnomPatient.setText(null);
         wprenomPatient.setText(null);
         wssPatient.setText(null);
+<<<<<<< HEAD
         wadresse.setText(null);
+=======
+        wadresse.setText(null);  
+        
+        
+        
+>>>>>>> origin/master
     }//GEN-LAST:event_ajouterPatientActionPerformed
 
     private void ficheSoinPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ficheSoinPatientActionPerformed
