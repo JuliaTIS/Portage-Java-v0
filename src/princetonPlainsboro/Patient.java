@@ -72,6 +72,7 @@ public class Patient extends Personne {
      * Méthode retournant les informations du patient sous forme de chaîne de caractères
      * @return Retourne les informations du médecin 
      */
+    @Override
     public String toString() {
         return this.getPrenom() + " " + this.getNom() + " \n"
                 + " " + this.adresse + " \n" + this.secu;
@@ -80,6 +81,7 @@ public class Patient extends Personne {
     /**
      * Méthode permettant d'afficher les informations concernant un patient au niveau de la console
      */
+    @Override
     public void afficherPersonne() {
         System.out.println(this.toString());
     }
@@ -91,6 +93,8 @@ public class Patient extends Personne {
      * true s'il s'agit du même patient
      * false dans le cas contraire
      */
+    
+    @Override
     public boolean equals(Object o) {
         if (o instanceof Patient) {
             Patient p = (Patient) o;
@@ -122,17 +126,11 @@ public class Patient extends Personne {
                 int w = (int) pageFormat.getImageableWidth();
                 int h = (int) pageFormat.getImageableHeight();
 
-                /* Dessin d'un cadre gris clair
-                 graphics.setColor(Color.LIGHT_GRAY);
-                 graphics.fillRect(x+10, y+10, w-20, h-20);*/
-
                 /* On écrit une ligne de titre en rouge, en gras de taille 18 */
                 graphics.setFont(new Font("Cambria", Font.BOLD, 18));
                 graphics.setColor(Color.BLUE);
                 graphics.drawString("Fiche Patient \n ", x + marge, y + marge );
-                
-                
-
+            
                 /* On écrit une ligne en noir de taille 14 */
                 graphics.setFont(new Font("Cambria", Font.PLAIN, 14));
                 graphics.setColor(Color.BLACK);
