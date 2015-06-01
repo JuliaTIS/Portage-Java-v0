@@ -31,6 +31,11 @@ public class Patient extends Personne {
         this.adresse = adresse;
         if (testSecu(secu)){
             this.secu = secu;
+            System.out.println("Okaayyyyyyyyyy");
+        }
+        else {
+            System.out.println("Mauvais Patient qui craint");
+            
         }
         
     }
@@ -123,11 +128,17 @@ public class Patient extends Personne {
     public boolean testSecu(String secu) {
         boolean res = false;
         long num = Long.parseLong(secu);
+        long intr = num;
         long complement = (num / 100) % 97;
         long cle = 97 - complement;
-        if (cle > 0 && cle < 98) {
+        if (num >= 100000000000000L && num <= 299999999999999L) {
+            if (cle > 0 && cle < 98) {
+                if (num/10000000000L%100 <= 12 && num/10000000000L%100 >= 01){
             res = true;
+                    
+                }
         }
+        else { res = false; }}
         return res;
     }
 
