@@ -959,20 +959,13 @@ public class Fenetre extends javax.swing.JFrame {
     }//GEN-LAST:event_ficheSoinPatientActionPerformed
 
     private void modifierPatient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifierPatient1ActionPerformed
-        /*SwingUtilities.invokeLater(new Runnable() {
-         public void run() {
-         //On crée une nouvelle instance de notre JDialog
-         dialog = new JDialog();
-         dialog.setLocationRelativeTo(null);
-         dialog.setSize(300, 100);//On lui donne une taille
-         dialog.setTitle("Modifier Patient"); //On lui donne un titre
-
-         dialog.setLayout(new BoxLayout(dialog, Y_AXIS));
+         System.out.println("OKOK");
+         /*
          JTextField nom = new JTextField();
          nom.setText("Nom");
          JTextField prenom = new JTextField();
          prenom.setText("Prénom");
-                
+              
 
          }
          });*/
