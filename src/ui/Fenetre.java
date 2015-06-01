@@ -926,8 +926,12 @@ public class Fenetre extends javax.swing.JFrame {
         LectureXML pat = new LectureXML("dossiers.xml");
         DossierMedical dm = pat.getDossier();
         for (int i = 0; i < dm.getFiches().size(); i++) {
-
-            dlmPat.addElement(dm.getFiches().get(i).getPatient().getNom() + " " + dm.getFiches().get(i).getPatient().getPrenom() + " / " + dm.getFiches().get(i).getPatient().getAdresse());
+            
+            Patient p = new Patient(dm.getFiches().get(i).getPatient().getNom(), dm.getFiches().get(i).getPatient().getPrenom(),dm.getFiches().get(i).getPatient().getAdresse(), dm.getFiches().get(i).getPatient().getSecu());
+            patients.add(p);
+            
+            int indexListepatient = listepatient.getSelectedIndex();
+            dlmPat.addElement(patients.get(i).getNom() + " " + patients.get(i).getPrenom() + " / " + patients.get(i).getSecu());
             
         }
         listepatient.setModel(dlmPat);
@@ -986,7 +990,7 @@ public class Fenetre extends javax.swing.JFrame {
                 boutons.add(valider);
 
                 JPanel infosPatient = new JPanel();
-<<<<<<< HEAD
+
                 infosPatient.setLayout(new BoxLayout(infosPatient, Y_AXIS));
                 dialog.add(infosPatient, BorderLayout.CENTER);
 
@@ -998,7 +1002,7 @@ public class Fenetre extends javax.swing.JFrame {
                 infosPatient.add(nomModif);
 
                 dialog.setVisible(true);//On la rend visible
-=======
+
                 infosPatient.setLayout(new BoxLayout(infosPatient,Y_AXIS));
                 dialog1.add(infosPatient, BorderLayout.CENTER);
                 res = listepatient.getSelectedIndex();
@@ -1021,12 +1025,12 @@ public class Fenetre extends javax.swing.JFrame {
                 infosPatient.add(adresseModif);
                               
                 dialog1.setVisible(true);//On la rend visible
->>>>>>> e5ecba976e1e520af155746f978b5cee7532eb9d
+
                 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //On dit à l'application de se fermer lors du clic sur la croix
 
                 valider.addActionListener(new java.awt.event.ActionListener() {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        validerActionPerformed(evt);
+                        validerPatientModifActionPerformed(evt);
                     }
                 });
 
@@ -1034,11 +1038,9 @@ public class Fenetre extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_modifierPatient1ActionPerformed
 
-<<<<<<< HEAD
-    private void validerActionPerformed(java.awt.event.ActionEvent evt) {
-        //
-=======
-    private void validerActionPerformed(java.awt.event.ActionEvent evt){
+
+   
+    private void validerPatientModifActionPerformed(java.awt.event.ActionEvent evt){
         patients.get(res).setNom(nomModif.getText());
         patients.get(res).setPrenom(prenomModif.getText());
         patients.get(res).setSecu(nSSModif.getText());
@@ -1049,7 +1051,7 @@ public class Fenetre extends javax.swing.JFrame {
         listepatient.setModel(dlmPat);  
         
         dialog1.dispose();
->>>>>>> e5ecba976e1e520af155746f978b5cee7532eb9d
+
     }
     private void recherchePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recherchePatientActionPerformed
         // TODO add your handling code here:
