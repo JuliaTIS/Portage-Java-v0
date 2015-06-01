@@ -28,10 +28,16 @@ public class Patient extends Personne {
      */
     public Patient(String nom, String prenom, String secu, String adresse) {
         super(nom, prenom);
+<<<<<<< HEAD
 this.secu = secu;
 this.adresse = adresse;      
       }
+=======
+        this.adresse = adresse;
+        this.secu = secu;
+>>>>>>> origin/master
 
+    }
     /**
      * Méthode permettant d'obtenir l'adresse du patient sous forme de chaîne de
      * caractères
