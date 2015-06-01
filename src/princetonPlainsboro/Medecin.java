@@ -8,8 +8,7 @@ import java.awt.print.Printable;
 import java.awt.print.PrinterException;
 
 /**
- * Classe Medecin héritant de Personne
- *
+ * Classe Medecin héritant de Personne (et des méthodes de l'interface Printable)
  * @author DULAC Julia, MUSCIO Cassandra, RAINAUT Jennifer, TREBOSSEN Lucie
  */
 public class Medecin extends Personne {

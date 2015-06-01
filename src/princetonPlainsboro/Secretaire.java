@@ -13,7 +13,7 @@ import java.awt.print.Printable;
 import java.awt.print.PrinterException;
 
 /**
- *
+ * Classe Secretaire définissant les méthodes concernant un secrétaire médical
  * @author DULAC Julia, MUSCIO Cassandra, RAINAUT Jennifer, TREBOSSEN Lucie
  */
 public class Secretaire extends Personne {
@@ -22,7 +22,13 @@ public class Secretaire extends Personne {
     private String mdp;
     
     
-    
+    /**
+     * Constructeur de la classe Secretaire
+     * @param nom Nom du secrétaire
+     * @param prenom Prénom du secrétaire
+     * @param identifiant Identifiant du secrétaire
+     * @param mdp Mot de passe du secrétaire
+     */
     public Secretaire(String nom, String prenom, String identifiant, String mdp)
     {
         super(nom,prenom);
@@ -32,44 +38,63 @@ public class Secretaire extends Personne {
     
     }
     
+    /**
+     * Méthode hérité de la classe Personne permettant d'afficher les informations du secrétaire au niveau de la console
+     */
     @Override
     public void afficherPersonne() {
         System.out.println(this.toString());    
     }
-    
+
+    /**
+     * Méthode permettant d'obtenir les informations du secrétaire sous forme de chaîne de caractères
+     * @return Retourne les informations du secrétaire sous forme de chaîne de caractères
+     */
     public String toString()
     {
     return super.toString() + " \n ";
     }
 
     /**
-     * @return the identifiant
+     * Méthode permettant d'obtenir l'identifiant du secrétaire
+     * @return Retourne l'identifiant de connexion du secrétaire sous forme de chaîne de caractères
      */
     public String getIdentifiant() {
         return identifiant;
     }
 
     /**
-     * @param identifiant the identifiant to set
+     * Méthode permettant de définir l'identifiant de connexion du secrétaire
+     * @param identifiant Identifiant sous forme de chaîne de caractère que l'on définit pour le secrétaire
      */
     public void setIdentifiant(String identifiant) {
         this.identifiant = identifiant;
     }
 
     /**
-     * @return the mdp
+     * Méthode permettant d'obtenir le mot de passe du secrétaire
+     * @return Retourne le mot de passe du secrétaire sous forme de chaîne de caractères
      */
     public String getMdp() {
         return mdp;
     }
 
     /**
-     * @param mdp the mdp to set
+     * Méthode permettant de définir le mot de passe du secrétaire
+     * @param mdp Mot de passe que l'on définit pour le secrétaire sous forme de chaîne de caractères
      */
     public void setMdp(String mdp) {
         this.mdp = mdp;
     }
 
+    /**
+     * Méthode permettant d'imprimer les informations relatives à un secrétaire médical
+     * @param graphics
+     * @param pageFormat
+     * @param pageIndex
+     * @return
+     * @throws PrinterException 
+     */
     @Override
     public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
         int retValue = Printable.NO_SUCH_PAGE;
