@@ -28,8 +28,8 @@ public class Patient extends Personne {
      */
     public Patient(String nom, String prenom, String secu, String adresse) {
         super(nom, prenom);
-        this.adresse = adresse;
-        this.secu = secu;
+this.secu = secu;
+this.adresse = adresse;      
       }
 
     /**
@@ -49,6 +49,7 @@ public class Patient extends Personne {
      *
      * @return Retourne le numéro de sécu sous forme de chaîne de caractères
      */
+    
     public String getSecu() {
         return this.secu;
 

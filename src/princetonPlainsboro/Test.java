@@ -80,8 +80,12 @@ class Test {
        Impression imp= new Impression() ;
        imp.imprimer(dm);
        
-
+       
             fds.afficher();
+            System.out.println(p1.getSecu());
+            p1.setSecu("291097853330917");
+            System.out.println(p1.getSecu());
+            
         /* DossierMedical dm1= new DossierMedical();
         dm1.ajouterFiche(fds);
         EcritureXML ecri= new EcritureXML(dm1);
