@@ -249,15 +249,6 @@ public class Fenetre extends javax.swing.JFrame {
         listeDePatients.setBackground(new java.awt.Color(255, 255, 255));
         listeDePatients.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(102, 102, 255), null));
 
-        listepatient.setModel(new javax.swing.AbstractListModel() {
-
-            LectureXML patientJList = new LectureXML("dossiers.xml");
-            DossierMedical dm = patientJList.getDossier();
-
-            String[] strings = { dm.getFiches().get(0).getPatient().getNom() + " "+ dm.getFiches().get(0).getPatient().getPrenom() + " "+ dm.getFiches().get(0).getPatient().getAdresse()};
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         listePatients.setViewportView(listepatient);
 
         ficheSoinPatient.setText("+ Fiche de Soin");
