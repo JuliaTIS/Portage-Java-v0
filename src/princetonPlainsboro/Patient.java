@@ -101,10 +101,7 @@ public class Patient extends Personne {
      * @return Retourne un booléen true s'il s'agit du même patient false dans
      * le cas contraire
      */
-<<<<<<< HEAD
 
-=======
->>>>>>> f99668ee78525af81aeb66ba0923f3bcf19cfc8a
     public boolean equals(Object o) {
         if (o instanceof Patient) {
             Patient p = (Patient) o;
