@@ -17,51 +17,81 @@ import java.awt.print.Printable;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 
-class Acte implements Printable {
+/**
+ * La classe Acte permet de décrire un Acte de soin pratiqué sur un Patient
+ * @author DULAC Julia, MUSCIO Cassandra, RAINAUT Jennifer, TREBOSSEN Lucie
+ */
+
+public class Acte implements Printable {
     private Code code;
     private int coef;
     
+    /**
+     * Constructeur de la classe Acte
+     * @param code
+     * le code de l'acte
+     * @param coef 
+     * le coefficient de l'acte
+     */
     public Acte(Code code, int coef) {
         this.code = code;
         this.coef = coef;
         }
     
+    /**
+     * 
+     * @return une chaîne de caractères prenant en compte l'acte et son coefficient
+     */
     public String toString() {
         return getCode().toString() + ", coefficient : " + getCoef();
         }
     
+    /**
+     * 
+     * @return retourne le coût de l'acte
+     */
     public double cout() {
         return getCode().calculerCout(getCoef());
         }
 
     /**
-     * @return the code
+     * @return retourne le code de l'acte
      */
     public Code getCode() {
         return code;
     }
 
     /**
-     * @param code the code to set
+     * @param code 
+     * permet de régler le code de l'acte
      */
     public void setCode(Code code) {
         this.code = code;
     }
 
     /**
-     * @return the coef
+     * @return retourne le coefficient de l'acte
      */
     public int getCoef() {
         return coef;
     }
 
     /**
-     * @param coef the coef to set
+     * @param coef
+     * permet de régler le coefficient de l'acte
      */
     public void setCoef(int coef) {
         this.coef = coef;
     }
 
+    /**
+     * 
+     * @param graphics
+     * @param pageFormat
+     * @param pageIndex
+     * @return
+     * @throws PrinterException 
+     */
     @Override
     public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
        

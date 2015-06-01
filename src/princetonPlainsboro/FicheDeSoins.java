@@ -8,7 +8,10 @@ import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
 import java.util.Vector;
-
+/**
+ * Classe permettant de créer et accéder aux fiches de soin
+ * @author DULAC Julia, MUSCIO Cassandra, RAINAUT Jennifer, TREBOSSEN Lucie
+ */
 public class FicheDeSoins implements Printable {
 
     private Patient patient;
@@ -16,6 +19,12 @@ public class FicheDeSoins implements Printable {
     private Date date;
     private Vector<Acte> actes;       // contient des objets de classe 'Acte'
 
+    /**
+     * 
+     * @param patient
+     * @param medecin
+     * @param date 
+     */
     public FicheDeSoins(Patient patient, Medecin medecin, Date date) {
         this.patient = patient;
         this.medecin = medecin;

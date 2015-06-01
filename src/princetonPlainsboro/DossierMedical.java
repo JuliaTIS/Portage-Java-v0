@@ -9,7 +9,7 @@ import java.awt.print.PrinterException;
 import java.util.List;
 import java.util.Vector;
 
-class DossierMedical implements Printable {
+public class DossierMedical implements Printable {
 
     private List<FicheDeSoins> fiches;     // contient des objets de classe 'FicheDeSoins'
 

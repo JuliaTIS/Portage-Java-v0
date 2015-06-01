@@ -548,6 +548,11 @@ public class Fenetre extends javax.swing.JFrame {
         actesSoin.setText("Actes");
 
         ajouterSoin.setText("+ Ajouter");
+        ajouterSoin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ajouterSoinActionPerformed(evt);
+            }
+        });
 
         infosPatient.setColumns(20);
         infosPatient.setRows(5);
@@ -927,7 +932,7 @@ public class Fenetre extends javax.swing.JFrame {
 
         }
         taille++;
-        
+
         listepatient.setModel(dlmPat);
 
         wnomPatient.setText(null);
@@ -1028,8 +1033,11 @@ public class Fenetre extends javax.swing.JFrame {
         }
         taille++;
 
+<<<<<<< HEAD
         System.out.println(wnomPatient.getText());
         
+=======
+>>>>>>> e9712c1c5df546c1f1c3fff26217ab81df02f9bb
         listemedecin.setModel(dlmMed);
 
         wnomMedecin.setText(null);
@@ -1082,6 +1090,11 @@ public class Fenetre extends javax.swing.JFrame {
     private void wTelMedecinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wTelMedecinActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_wTelMedecinActionPerformed
+
+    private void ajouterSoinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterSoinActionPerformed
+
+
+    }//GEN-LAST:event_ajouterSoinActionPerformed
 
     /**
      * @param args the command line arguments

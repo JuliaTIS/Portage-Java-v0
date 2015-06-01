@@ -14,8 +14,8 @@ import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 
 /**
- *
- * @author Cyril
+ * Classe Impression
+ * @author DULAC Julia, MUSCIO Cassandra, RAINAUT Jennifer, TREBOSSEN Lucie
  */
 public class Impression extends PrinterJob{
 

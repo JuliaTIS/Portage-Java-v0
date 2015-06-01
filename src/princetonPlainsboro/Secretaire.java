@@ -14,7 +14,7 @@ import java.awt.print.PrinterException;
 
 /**
  *
- * @author Cyril
+ * @author DULAC Julia, MUSCIO Cassandra, RAINAUT Jennifer, TREBOSSEN Lucie
  */
 public class Secretaire extends Personne {
 

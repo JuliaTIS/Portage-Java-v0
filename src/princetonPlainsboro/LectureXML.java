@@ -21,7 +21,7 @@ import javax.xml.stream.XMLStreamReader;
 /**
  * Lecture d'un document XML et transformation en instances Java.
  *
- * @author promayon
+ *
  */
 public class LectureXML {
     /// nom du document XML a analyser
@@ -110,8 +110,17 @@ public class LectureXML {
                         if (parser.getLocalName().equals("prenom")) {
                             prenomCourant = donneesCourantes;
                         }
+                        if (parser.getLocalName().equals("telephone")) {
+                            telCourant = donneesCourantes;
+                        }
                         if (parser.getLocalName().equals("specialite")) {
                             specialiteCourante = donneesCourantes;
+                        }
+                        if (parser.getLocalName().equals("identifiant")) {
+                            identifiantCourant = donneesCourantes;
+                        }
+                        if (parser.getLocalName().equals("mdp")) {
+                            mdpCourant = donneesCourantes;
                         }
                         break;
                     case XMLStreamConstants.CHARACTERS:

@@ -1,13 +1,17 @@
 package princetonPlainsboro;
-
+/**
+ * Enumération des différents Code disponibles pour un Acte
+ * @author DULAC Julia, MUSCIO Cassandra, RAINAUT Jennifer, TREBOSSEN Lucie
+ */
 // Cette enumeration fait intervenir des valeurs qui possedent des
 // attributs ('libelle' et 'cout') qui sont initialises par un appel du
 // constructeur (arguments entre parentheses apres le nom de chaque valeur).
 // Par exemple, la valeur Code.FP a un attribut 'libelle' contenant la chaine
 // de caracteres "forfait pediatrique" et un attribut 'cout' ayant la valeur 5.0
 
-enum Code {
+public enum Code {
     // valeurs de l'ï¿½num :
+    
     CS("consultation au cabinet", 23.0),
     CSC("consultation cardiologie", 45.73),
     FP("forfait pediatrique", 5.0),
@@ -24,16 +28,31 @@ enum Code {
     private double cout;
     
     // constructeur :
+    /**
+     * Constructeur de Code
+     * @param libelle
+     * Chaîne de caractères correspondant au libellé
+     * @param cout 
+     * Double correspondant au coût
+     */
     private Code(String libelle, double cout) {
         this.libelle = libelle;
         this.cout = cout;
         }
     
-    // mï¿½thodes :
+    /**
+     * 
+     * @return retourne une chaîne de caractère correspondant à la description du code
+     */
     public String toString() {
         return super.toString() + " : " + libelle + ", cout=" + cout + " euros";
         }
     
+    /**
+     * 
+     * @param coefficient
+     * @return un double qui est le résultat du calcul du prix pour un coefficient donné
+     */
     // calcule le prix pour un coefficient donne :
     public double calculerCout(int coefficient) {
         return coefficient * cout;
