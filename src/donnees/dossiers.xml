@@ -15,7 +15,7 @@
         <nom>Track</nom>
         <prenom>Pat</prenom>
         <adresse>34 Rue des tulipes</adresse>
-        <secu>214097855130917L</secu>
+        <secu>214097855130917</secu>
     </patient>
     <acte>
         <code>CS</code>

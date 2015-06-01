@@ -30,13 +30,8 @@ public class Patient extends Personne {
         super(nom, prenom);
         this.adresse = adresse;
         this.secu = secu;
-<<<<<<< HEAD
-        
-    }
-=======
-      }
->>>>>>> 5f5109f5ba03cb7d9067211cfa6560eca9dbe339
 
+    }
     /**
      * Méthode permettant d'obtenir l'adresse du patient sous forme de chaîne de
      * caractères
