@@ -932,29 +932,15 @@ public class Fenetre extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ajouterPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPatientActionPerformed
-<<<<<<< HEAD
-=======
-
-        Patient patient = new Patient(wnomPatient.getText(), wprenomPatient.getText(), wssPatient.getText(), wadresse.getText());
-        nomPatient.add(wnomPatient.getText());
-        prenomPatient.add(wprenomPatient.getText());
-        nSSPatient.add(wssPatient.getText());
-        adressePatient.add(wadresse.getText());
-        
+ 
         //patients.add(patient);
->>>>>>> origin/master
-
         Patient patient = new Patient(wnomPatient.getText(), wprenomPatient.getText(), wssPatient.getText(), wadresse.getText());
         patients.add(patient);
            
         int taille = 1;
         for (int i = 0; i < taille; i++) {
 
-<<<<<<< HEAD
-            dlmPat.addElement(patient.getNom() + " " + patient.getPrenom() + " " + patient.getSecu() + " / " + patient.getAdresse());
-=======
             dlmPat.addElement(patient.getNom() + " " + patient.getPrenom() + " / " + patient.getSecu());
->>>>>>> origin/master
 
         }
         taille++;
@@ -964,20 +950,9 @@ public class Fenetre extends javax.swing.JFrame {
         wnomPatient.setText(null);
         wprenomPatient.setText(null);
         wssPatient.setText(null);
-<<<<<<< HEAD
-        wadresse.setText(null);
-
-
-=======
-<<<<<<< HEAD
-        wadresse.setText(null);
-=======
         wadresse.setText(null);  
         
-        
-        
->>>>>>> origin/master
->>>>>>> origin/master
+       
     }//GEN-LAST:event_ajouterPatientActionPerformed
 
     private void ficheSoinPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ficheSoinPatientActionPerformed
