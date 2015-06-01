@@ -959,18 +959,48 @@ public class Fenetre extends javax.swing.JFrame {
     }//GEN-LAST:event_ficheSoinPatientActionPerformed
 
     private void modifierPatient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifierPatient1ActionPerformed
-         System.out.println("OKOK");
-         /*
-         JTextField nom = new JTextField();
-         nom.setText("Nom");
-         JTextField prenom = new JTextField();
-         prenom.setText("Prénom");
-              
+         SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                //On crée une nouvelle instance de notre JDialog
+                dialog1 = new JDialog();
+                dialog1.setLocationRelativeTo(null);
+                dialog1.setSize(300, 250);//On lui donne une taille
+                dialog1.setTitle("Modifier Patient"); //On lui donne un titre
 
-         }
-         });*/
+                dialog1.setLayout(new BorderLayout());
+                JButton valider = new JButton("Valider");
+                JPanel boutons = new JPanel();
+                boutons.setLayout(new FlowLayout());
+                dialog1.add(boutons, BorderLayout.SOUTH);
+                boutons.add(valider);
+
+                JPanel infosPatient = new JPanel();
+                infosPatient.setLayout(new BoxLayout(infosPatient,Y_AXIS));
+                dialog.add(infosPatient, BorderLayout.CENTER);
+   
+                int res = listepatient.getSelectedIndex();
+                JTextField nomModif = new JTextField();
+                nomModif.setText((String)patients.get(res).getNom());
+                patients.get(res).setNom(nomModif.getText());
+               
+                infosPatient.add(nomModif);
+                              
+                dialog.setVisible(true);//On la rend visible
+                setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //On dit à l'application de se fermer lors du clic sur la croix
+
+                valider.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        validerActionPerformed(evt);
+                    }
+                });
+
+            }
+        });
     }//GEN-LAST:event_modifierPatient1ActionPerformed
 
+    private void validerActionPerformed(java.awt.event.ActionEvent evt){
+        //
+    }
     private void recherchePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recherchePatientActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_recherchePatientActionPerformed
@@ -1137,6 +1167,7 @@ public class Fenetre extends javax.swing.JFrame {
     }
 
     JDialog dialog;
+    JDialog dialog1;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Actes;
     private javax.swing.JTextField CoutDuNouvelActe;
