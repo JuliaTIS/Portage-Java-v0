@@ -39,10 +39,9 @@ public class Acte implements Printable {
         }
     
     /**
-     * Méthode permettant l'obtention des informations de l'ate en chaîne de caractère
+     * 
      * @return une chaîne de caractères prenant en compte l'acte et son coefficient
      */
-    @Override
     public String toString() {
         return getCode().toString() + ", coefficient : " + getCoef();
         }

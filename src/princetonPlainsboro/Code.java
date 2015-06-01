@@ -44,7 +44,6 @@ public enum Code {
      * 
      * @return retourne une chaîne de caractère correspondant à la description du code
      */
-    @Override
     public String toString() {
         return super.toString() + " : " + libelle + ", cout=" + cout + " euros";
         }

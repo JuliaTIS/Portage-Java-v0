@@ -13,7 +13,6 @@ public class ComparaisonFichesDates implements ComparaisonFiches {
  * inférieure dans le où la date de la fiche 2 est supérieure à celle de la fiche 1
  * égal à 0 si les dates sont identiques
  */
-    @Override
     public int comparer(FicheDeSoins fiche1, FicheDeSoins fiche2) {
         return fiche1.getDate().compareTo(fiche2.getDate());
         }
