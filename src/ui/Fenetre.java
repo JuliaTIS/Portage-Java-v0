@@ -1032,12 +1032,6 @@ public class Fenetre extends javax.swing.JFrame {
             //reste à faire la partie qui enregistre le médecin dans l'Xml mais j'ai peur de tout casser je verrai avec Julia
         }
         taille++;
-
-<<<<<<< HEAD
-        System.out.println(wnomPatient.getText());
-        
-=======
->>>>>>> e9712c1c5df546c1f1c3fff26217ab81df02f9bb
         listemedecin.setModel(dlmMed);
 
         wnomMedecin.setText(null);
