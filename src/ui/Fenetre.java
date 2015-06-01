@@ -921,23 +921,27 @@ public class Fenetre extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private void importPatientFromXML(){
+    private void importPatientFromXML() {
+
         
+
+        LectureXML pat = new LectureXML("dossiers.xml");
+        DossierMedical dm = pat.getDossier();
+        for (int i = 0; i < dm.getFiches().size(); i++) {
+
+            dlmPat.addElement(dm.getFiches().get(i).getPatient().getNom() + " " + dm.getFiches().get(i).getPatient().getPrenom() + " / " + dm.getFiches().get(i).getPatient().getAdresse());
+            
+        }
         listepatient.setModel(dlmPat);
-        
-        LectureXML test = new LectureXML("dossiers.xml");
-        DossierMedical dm = test.getDossier();
-        dlmPat.addElement(dm.getFiches().get(0).getPatient().getNom() + " "+dm.getFiches().get(0).getPatient().getPrenom());
-        dlmPat.addElement(dm.getFiches().get(1).getPatient().getNom() + " "+dm.getFiches().get(1).getPatient().getAdresse());
     }
-    
-   
+
+
     private void ajouterPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterPatientActionPerformed
- 
+
         //patients.add(patient);
         Patient patient = new Patient(wnomPatient.getText(), wprenomPatient.getText(), wssPatient.getText(), wadresse.getText());
         patients.add(patient);
-           
+
         int taille = 1;
         for (int i = 0; i < taille; i++) {
 
@@ -946,13 +950,13 @@ public class Fenetre extends javax.swing.JFrame {
         }
         taille++;
 
-        listepatient.setListData(dlmPat.toArray());
+        listepatient.setModel(dlmPat);
         wnomPatient.setText(null);
         wprenomPatient.setText(null);
         wssPatient.setText(null);
-        wadresse.setText(null);  
-        
-       
+        wadresse.setText(null);
+
+
     }//GEN-LAST:event_ajouterPatientActionPerformed
 
     private void ficheSoinPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ficheSoinPatientActionPerformed
@@ -968,7 +972,7 @@ public class Fenetre extends javax.swing.JFrame {
     }//GEN-LAST:event_ficheSoinPatientActionPerformed
 
     private void modifierPatient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifierPatient1ActionPerformed
-         SwingUtilities.invokeLater(new Runnable() {
+        SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 //On crée une nouvelle instance de notre JDialog
                 dialog1 = new JDialog();
@@ -984,16 +988,16 @@ public class Fenetre extends javax.swing.JFrame {
                 boutons.add(valider);
 
                 JPanel infosPatient = new JPanel();
-                infosPatient.setLayout(new BoxLayout(infosPatient,Y_AXIS));
+                infosPatient.setLayout(new BoxLayout(infosPatient, Y_AXIS));
                 dialog.add(infosPatient, BorderLayout.CENTER);
-   
+
                 int res = listepatient.getSelectedIndex();
                 JTextField nomModif = new JTextField();
-                nomModif.setText((String)patients.get(res).getNom());
+                nomModif.setText((String) patients.get(res).getNom());
                 patients.get(res).setNom(nomModif.getText());
-               
+
                 infosPatient.add(nomModif);
-                              
+
                 dialog.setVisible(true);//On la rend visible
                 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //On dit à l'application de se fermer lors du clic sur la croix
 
@@ -1007,7 +1011,7 @@ public class Fenetre extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_modifierPatient1ActionPerformed
 
-    private void validerActionPerformed(java.awt.event.ActionEvent evt){
+    private void validerActionPerformed(java.awt.event.ActionEvent evt) {
         //
     }
     private void recherchePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recherchePatientActionPerformed
@@ -1033,26 +1037,26 @@ public class Fenetre extends javax.swing.JFrame {
                 boutons.add(imprimer);
 
                 JPanel infosPatient = new JPanel();
-                infosPatient.setLayout(new BoxLayout(infosPatient,Y_AXIS));
+                infosPatient.setLayout(new BoxLayout(infosPatient, Y_AXIS));
                 dialog.add(infosPatient, BorderLayout.CENTER);
-   
+
                 int res = listepatient.getSelectedIndex();
-                JLabel nom1 = new JLabel((String)patients.get(res).getNom());
+                JLabel nom1 = new JLabel((String) patients.get(res).getNom());
                 nom1.setFont(new Font("Serif", Font.PLAIN, 22));
-                JLabel prenom1 = new JLabel((String)patients.get(res).getPrenom());
+                JLabel prenom1 = new JLabel((String) patients.get(res).getPrenom());
                 prenom1.setFont(new Font("Serif", Font.PLAIN, 18));
-                JLabel secu1 = new JLabel((String)patients.get(res).getSecu());
+                JLabel secu1 = new JLabel((String) patients.get(res).getSecu());
                 secu1.setFont(new Font("Serif", Font.PLAIN, 15));
-                JLabel adresse1 = new JLabel((String)patients.get(res).getAdresse());
+                JLabel adresse1 = new JLabel((String) patients.get(res).getAdresse());
                 adresse1.setFont(new Font("Serif", Font.PLAIN, 15));
                 JLabel vide = new JLabel(" ");      //Créer un espace entre les infos générales du patients et son adresse
-                
+
                 infosPatient.add(nom1);
                 infosPatient.add(prenom1);
                 infosPatient.add(secu1);
                 infosPatient.add(vide);
                 infosPatient.add(adresse1);
-                              
+
                 dialog.setVisible(true);//On la rend visible
                 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //On dit à l'application de se fermer lors du clic sur la croix
 
@@ -1169,10 +1173,9 @@ public class Fenetre extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {                
-                
+            public void run() {
+
                 new Fenetre().setVisible(true);
-                
 
             }
         });
@@ -1273,4 +1276,3 @@ public class Fenetre extends javax.swing.JFrame {
     private javax.swing.JTextField wssPatient;
     // End of variables declaration//GEN-END:variables
 }
-
