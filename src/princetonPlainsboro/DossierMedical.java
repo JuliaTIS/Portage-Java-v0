@@ -268,8 +268,8 @@ public class DossierMedical implements Printable {
     public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
             
            int retValue = Printable.NO_SUCH_PAGE;
-        switch (pageIndex) {
-            case 0: {
+        if (pageIndex==0)
+           {
                 /* On définit une marge pour l'impression */
                 int marge = 30;
 
@@ -296,11 +296,46 @@ public class DossierMedical implements Printable {
                 drawString(graphics, this.toString(), x + marge, y + marge + 20);
 
                 retValue = Printable.PAGE_EXISTS;
+                pageIndex++;
             }
+        
+        else if (pageIndex>0 && pageIndex <4)
+        {
+        int marge = 30;
+
+                /* On récupère les coordonnées des bords de la page */
+                int x = (int) pageFormat.getImageableX();
+                int y = (int) pageFormat.getImageableY();
+                int w = (int) pageFormat.getImageableWidth();
+                int h = (int) pageFormat.getImageableHeight();
+
+                /* Dessin d'un cadre gris clair
+                 graphics.setColor(Color.LIGHT_GRAY);
+                 graphics.fillRect(x+10, y+10, w-20, h-20);*/
+
+                /* On écrit une ligne de titre en rouge, en gras de taille 18 */
+                graphics.setFont(new Font("Cambria", Font.BOLD, 18));
+                graphics.setColor(Color.BLUE);
+                graphics.drawString("Dossiers Médical \n ", x + marge, y + marge );
+                
+                
+
+                /* On écrit une ligne en noir de taille 14 */
+                graphics.setFont(new Font("Cambria", Font.PLAIN, 14));
+                graphics.setColor(Color.BLACK);
+                drawString(graphics, this.toString(), x + marge, y + marge + 20);
+
+                retValue = Printable.PAGE_EXISTS;
+        
+        
+        
         }
-        return retValue;
-    }
+          return retValue;
+        
+        }
+      
     
+
      private void drawString(Graphics g, String text, int x, int y) {
         for (String line : text.split("\n"))
             g.drawString(line, x, y += g.getFontMetrics().getHeight());

@@ -122,6 +122,12 @@ public class LectureXML {
                         if (parser.getLocalName().equals("mdp")) {
                             mdpCourant = donneesCourantes;
                         }
+                         if (parser.getLocalName().equals("secu")) {
+                            secuCourant = donneesCourantes;
+                        }
+                          if (parser.getLocalName().equals("adresse")) {
+                            adresseCourant = donneesCourantes;
+                        }
                         break;
                     case XMLStreamConstants.CHARACTERS:
                         donneesCourantes = parser.getText();
