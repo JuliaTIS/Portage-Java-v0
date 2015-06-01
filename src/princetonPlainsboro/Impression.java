@@ -15,96 +15,33 @@ import java.awt.print.PrinterJob;
 
 /**
  * Classe Impression permettant d'imprimer euh... Tout ?
+ *
  * @author DULAC Julia, MUSCIO Cassandra, RAINAUT Jennifer, TREBOSSEN Lucie
  */
-public class Impression extends PrinterJob{
+public class Impression {
 
-    public void imprimer(){
-    if (this.printDialog()){
-         try {
-            // Effectue l'impression
-            this.print();
-         } catch (PrinterException ex) {
-             System.out.println(ex);
-         }
-      }}
-
-   
-    @Override
-    public void setPrintable(Printable prntbl) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setPrintable(Printable prntbl, PageFormat pf) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setPageable(Pageable pgbl) throws NullPointerException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean printDialog() throws HeadlessException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public PageFormat pageDialog(PageFormat pf) throws HeadlessException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public PageFormat defaultPage(PageFormat pf) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public PageFormat validatePage(PageFormat pf) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void print() throws PrinterException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setCopies(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int getCopies() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String getUserName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setJobName(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String getJobName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void cancel() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean isCancelled() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    }
     
     
+    
+    public void imprimer(Printable p) {
+        PrinterJob job = PrinterJob.getPrinterJob();
+        // Définit son contenu à imprimer
+        job.setPrintable(p);
+        // Affiche une boîte de choix d'imprimante
+        if (job.printDialog()) {
+            try {
+                // Effectue l'impression
+                job.print();
+            } catch (PrinterException ex) {
+                ex.printStackTrace();
+            }
+        }}
+        
+        
+         public void drawString(Graphics g, String text, int x, int y) {
+        for (String line : text.split("\n"))
+            g.drawString(line, x, y += g.getFontMetrics().getHeight());
+    }
+
+    }
+

@@ -43,7 +43,7 @@ public class Acte implements Printable {
      * @return une chaîne de caractères prenant en compte l'acte et son coefficient
      */
     public String toString() {
-        return getCode().toString() + ", coefficient : " + getCoef();
+        return getCode().toString() + ", coefficient : " + getCoef() + "\n";
         }
     
     /**

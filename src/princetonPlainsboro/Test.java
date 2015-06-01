@@ -77,28 +77,20 @@ class Test {
         FicheDeSoins fds = new FicheDeSoins(pat, med, d);
         fds = dm.getFiches().get(0);
 
-       /* // Récupère un PrinterJob
-        PrinterJob job = PrinterJob.getPrinterJob();
-        // Définit son contenu à imprimer
-        job.setPrintable(med);
-        // Affiche une boîte de choix d'imprimante
-        if (job.printDialog()) {
-            try {
-                // Effectue l'impression
-                job.print();
-            } catch (PrinterException ex) {
-                ex.printStackTrace();
-            }
+       Impression imp= new Impression() ;
+       imp.imprimer(dm);
+       
 
             fds.afficher();
-*/
-        DossierMedical dm1= new DossierMedical();
+
+        /* DossierMedical dm1= new DossierMedical();
         dm1.ajouterFiche(fds);
         EcritureXML ecri= new EcritureXML(dm1);
         ecri.setXML();
        // OK pour que la base de données XML soit generée a partir d'un dossier medical =) 
       // par contre on a toujours un probleme pour stocker les secretaire... Dans un autre fichier XML ? 
         
+        */
         
         
         }

@@ -136,7 +136,7 @@ public class Patient extends Personne {
                 /* On écrit une ligne en noir de taille 14 */
                 graphics.setFont(new Font("Cambria", Font.PLAIN, 14));
                 graphics.setColor(Color.BLACK);
-                graphics.drawString(this.toString(), x + marge, y + marge + 20);
+                drawString(graphics, this.toString(), x + marge, y + marge + 20);
 
                 retValue = Printable.PAGE_EXISTS;
             }

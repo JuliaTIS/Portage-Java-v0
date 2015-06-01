@@ -60,7 +60,7 @@ public class Medecin extends Personne {
      * @return Retourne une chaîne de caractères contenant les informations
      */
     public String toString() {
-        return "Dr " + super.toString() + ", " + this.specialite + "\r\n" + ""
+        return "Dr " + super.toString() + ", " + this.specialite + "\n" + ""
                 + " Telephone : " + this.tel;
     }
 
@@ -143,18 +143,19 @@ public class Medecin extends Personne {
                 /* On écrit une ligne de titre en rouge, en gras de taille 18 */
                 graphics.setFont(new Font("Cambria", Font.BOLD, 18));
                 graphics.setColor(Color.BLUE);
-                graphics.drawString("Fiche Médecin " + newLine, x + marge, y + marge);
+                graphics.drawString("Fiche Médecin ", x + marge, y + marge);
 
                 /* On écrit une ligne en noir de taille 14 */
                 graphics.setFont(new Font("Cambria", Font.PLAIN, 14));
                 graphics.setColor(Color.BLACK);
-                graphics.drawString(this.toString(), x + marge, y + marge + 90);
+                drawString(graphics, this.toString(), x + marge, y + marge + 90);
 
                 retValue = Printable.PAGE_EXISTS;
             }
         }
         return retValue;
     }
+   
 
     /**
      * Méthode permettant de récupérer l'identifiant d'un médecin

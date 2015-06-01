@@ -293,12 +293,17 @@ public class DossierMedical implements Printable {
                 /* On écrit une ligne en noir de taille 14 */
                 graphics.setFont(new Font("Cambria", Font.PLAIN, 14));
                 graphics.setColor(Color.BLACK);
-                graphics.drawString(this.toString(), x + marge, y + marge + 20);
+                drawString(graphics, this.toString(), x + marge, y + marge + 20);
 
                 retValue = Printable.PAGE_EXISTS;
             }
         }
         return retValue;
+    }
+    
+     private void drawString(Graphics g, String text, int x, int y) {
+        for (String line : text.split("\n"))
+            g.drawString(line, x, y += g.getFontMetrics().getHeight());
     }
         
         

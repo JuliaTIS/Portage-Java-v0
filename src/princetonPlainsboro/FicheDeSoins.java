@@ -12,7 +12,7 @@ import java.util.Vector;
  * Classe permettant de créer et accéder aux fiches de soin
  * @author DULAC Julia, MUSCIO Cassandra, RAINAUT Jennifer, TREBOSSEN Lucie
  */
-public class FicheDeSoins implements Printable {
+public class FicheDeSoins extends Impression implements Printable  {
 
     private Patient patient;
     private Medecin medecin;
@@ -93,11 +93,15 @@ public class FicheDeSoins implements Printable {
      */
     public String toString() {
         String s = "Fiche de soins du " + date.toString() + "\n" + "- medecin : "
-                + medecin.toString() + "\r\n" + "- patient : " + patient.toString() + "\r\n" + "- actes medicaux : \n";
+                + medecin.toString() + "\n" + "- patient : " + patient.toString() + "\n" + "- actes medicaux : \n";
         for (int i = 0; i < getActes().size(); i++) {
             Acte a = getActes().get(i);
             s = s + a.toString();
         }
+        for (int i=0; i<4 ; i++)
+        {
+        s=s+"\n";
+                }
         return s;
 
     }
@@ -153,17 +157,17 @@ public class FicheDeSoins implements Printable {
                 int y = (int) pageFormat.getImageableY();
                 int w = (int) pageFormat.getImageableWidth();
                 int h = (int) pageFormat.getImageableHeight();
-                Graphics2D g2d = (Graphics2D) graphics;
-                g2d.translate(pageFormat.getImageableX(), pageFormat.getImageableY());
+                
                 /* On écrit une ligne de titre en rouge, en gras de taille 18 */
-                g2d.setFont(new Font("Cambria", Font.BOLD, 18));
-                g2d.setColor(Color.BLUE);
-                g2d.drawString("Fiche de Soin de \n " + this.getPatient().getNom().toString() + " " + this.getPatient().getPrenom().toString(), x + marge, y + marge);
+                graphics.setFont(new Font("Cambria", Font.BOLD, 18));
+                graphics.setColor(Color.BLUE);
+                graphics.drawString("Fiche de Soin de \n " + this.getPatient().getNom().toString() + " " + this.getPatient().getPrenom().toString(), x + marge, y + marge);
 
                 /* On écrit une ligne en noir de taille 14 */
-                g2d.setFont(new Font("Cambria", Font.PLAIN, 14));
-                g2d.setColor(Color.BLACK);
-                g2d.drawString(this.toString(), x + marge, y + marge + 20);
+          /* On écrit une ligne en noir de taille 14 */
+                graphics.setFont(new Font("Cambria", Font.PLAIN, 14));
+                graphics.setColor(Color.BLACK);
+                drawString(graphics, this.toString(), x + marge, y + marge + 90);
 
                 retValue = Printable.PAGE_EXISTS;
             }

@@ -12,7 +12,7 @@ import java.awt.print.Printable;
  *
  * @author DULAC Julia, MUSCIO Cassandra, RAINAUT Jennifer, TREBOSSEN Lucie
  */
-public abstract class Personne implements Printable {
+public abstract class Personne extends Impression implements Printable {
 
     private String nom;
     private String prenom;
