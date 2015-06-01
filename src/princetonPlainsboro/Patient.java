@@ -30,8 +30,12 @@ public class Patient extends Personne {
         super(nom, prenom);
         this.adresse = adresse;
         this.secu = secu;
+<<<<<<< HEAD
         
     }
+=======
+      }
+>>>>>>> 5f5109f5ba03cb7d9067211cfa6560eca9dbe339
 
     /**
      * Méthode permettant d'obtenir l'adresse du patient sous forme de chaîne de
@@ -73,6 +77,10 @@ public class Patient extends Personne {
     public void setSecu(String secu) {
         if (testSecu(secu)) {
             this.secu = secu;
+            System.out.println("numéro ok");
+        }
+        else {
+            System.out.println("numéro pourri");
         }
 
     }
@@ -121,17 +129,18 @@ public class Patient extends Personne {
     public boolean testSecu(String secu) {
         boolean res = false;
         long num = Long.parseLong(secu);
-        long intr = num;
         long complement = (num / 100) % 97;
         long cle = 97 - complement;
         if (num >= 100000000000000L && num <= 299999999999999L) {
             if (cle > 0 && cle < 98) {
-                if (num/10000000000L%100 <= 12 && num/10000000000L%100 >= 01){
-            res = true;
-                    
+                if (num / 10000000000L % 100 <= 12 && num / 10000000000L % 100 >= 01) {
+                    res = true;
+
                 }
+            } else {
+                res = false;
+            }
         }
-        else { res = false; }}
         return res;
     }
 
