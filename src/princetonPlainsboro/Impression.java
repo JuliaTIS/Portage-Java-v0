@@ -14,7 +14,7 @@ import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 
 /**
- * Classe Impression
+ * Classe Impression permettant d'imprimer euh... Tout ?
  * @author DULAC Julia, MUSCIO Cassandra, RAINAUT Jennifer, TREBOSSEN Lucie
  */
 public class Impression extends PrinterJob{

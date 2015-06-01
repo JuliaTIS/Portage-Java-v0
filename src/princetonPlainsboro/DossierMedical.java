@@ -8,16 +8,25 @@ import java.awt.print.Printable;
 import java.awt.print.PrinterException;
 import java.util.List;
 import java.util.Vector;
-
+/**
+ * Classe regroupant l'ensemble des fiches de soins créées dans une liste
+ * @author DULAC Julia, MUSCIO Cassandra, RAINAUT Jennifer, TREBOSSEN Lucie
+ */
 public class DossierMedical implements Printable {
 
     private List<FicheDeSoins> fiches;     // contient des objets de classe 'FicheDeSoins'
 
-
+    /**
+     * Constructeur de la classe DossierMedical qui instancie un Vector
+     */
     public DossierMedical() {
         fiches = new Vector<FicheDeSoins>();  // liste vide
     }
     
+    /**
+     * Méthode permettant de transformer les informations du DossierMedical en chaîne de caractères
+     * @return Retourne l'ensemble des fiches de soins contenus dans le DossierMedical sous forme de chaîne de caractère
+     */
     public String toString()
     {
         String s = "Dossier medical informatise :" +"\n"+"-----------------------------" +"\n";
@@ -30,6 +39,9 @@ public class DossierMedical implements Printable {
     return s;
     }
     
+    /**
+     * Méthode affichant l'ensemble des médecins des fiches de soins
+     */
     public void afficherMedecins()
     {
         for (int i=0; i<getFiches().size(); i++)
@@ -40,6 +52,9 @@ public class DossierMedical implements Printable {
     
     }
     
+    /**
+     * Méthode affichant l'ensemble des Patients des fiches de soins
+     */
     public void afficherPatients()
     {
         for (int i=0; i<getFiches().size(); i++)
@@ -50,10 +65,17 @@ public class DossierMedical implements Printable {
     
     }
 
+    /**
+     * Méthode permettant d'ajouter une fiche de soin au DossierMedical
+     * @param fiche Fiche de soin à ajouter
+     */
     public void ajouterFiche(FicheDeSoins fiche) {
         getFiches().add(fiche);
     }
 
+    /**
+     * Méthode permettant l'affichage du dossier médical dans la console
+     */
     public void afficher() {
         System.out.println("Dossier medical informatise :");
         System.out.println("-----------------------------");
@@ -65,6 +87,11 @@ public class DossierMedical implements Printable {
         }
     }
 
+    /**
+     * Méthode de calcul du coût d'un patient (en cumulant toutes ses fiches de soin)
+     * @param p Patient dont on veut connaître le coût
+     * @return Retourne la valeur du coût du patient en double
+     */
     public double coutPatient(Patient p) {
         double cout = 0;
         for (int i = 0; i < getFiches().size(); i++) {
@@ -76,6 +103,11 @@ public class DossierMedical implements Printable {
         return cout;
     }
 
+    /**
+     * Méthode permettant de calculer le cout d'un médecin (sur toutes ses fiches de paie)
+     * @param m Médecin dont on veut connaître le coût
+     * @return Retourne le coût en double du Médecin concerné
+     */
     public double coutMedecin(Medecin m) {
         double cout = 0;
         for (int i = 0; i < getFiches().size(); i++) {
@@ -87,6 +119,11 @@ public class DossierMedical implements Printable {
         return cout;
     }
 
+    /**
+     * Méthode permettant de calculer le coût d'une spécialité
+     * @param specialite Nom de la spécialité concernée
+     * @return Retourne le cout de la spécialité en double
+     */
     public double coutSpecialite(String specialite) {
         double cout = 0;
         for (int i = 0; i < getFiches().size(); i++) {
@@ -98,6 +135,10 @@ public class DossierMedical implements Printable {
         return cout;
     }
 
+    /**
+     * Méthode permettant d'afficher la liste des patients d'un médecin
+     * @param m Médecin dont on veut afficher les patients
+     */
     public void afficherListePatients(Medecin m) {
         System.out.println("> liste des patients du " + m.toString() + " :");
         Vector<Patient> liste = new Vector<Patient>();
@@ -115,6 +156,12 @@ public class DossierMedical implements Printable {
         }
     }
 
+    /**
+     * Méthode permettant de connaître le nombre de fiches de soin entre deux dates
+     * @param d1 première date
+     * @param d2 seconde date
+     * @return Retourne le nombre sous forme d'entier de fiches crées entre les deux dates
+     */
     public int nombreFichesIntervalle(Date d1, Date d2) {
         int n = 0;
         for (int i = 0; i < getFiches().size(); i++) {
@@ -127,7 +174,11 @@ public class DossierMedical implements Printable {
         return n;
     }
     
-    
+    /**
+     * Méthodes permettant d'afficher toutes les fiches de soins entre deux dates connues
+     * @param d1 première date
+     * @param d2 seconde date
+     */
     public void afficherFichesEntreDate( Date d1, Date d2)
     {
     
@@ -143,6 +194,9 @@ public class DossierMedical implements Printable {
     
     }
 
+    /**
+    * Méthode permettant de trier les fiches de soin d'une instance de DossierMedical selon leurs dates
+    */
     public void trierDates() {
         Vector<FicheDeSoins> copieFiches = new Vector<FicheDeSoins>(getFiches());
 
@@ -189,7 +243,7 @@ public class DossierMedical implements Printable {
     }
 
     /**
-     * @return the fiches
+     * @return les fiches de soin
      */
     public List<FicheDeSoins> getFiches() {
         return fiches;
@@ -202,6 +256,14 @@ public class DossierMedical implements Printable {
         this.fiches = fiches;
     }
 
+    /**
+     * Methode permettant d'imprimer baaaaah pour l'instant on sait pas trop !
+     * @param graphics
+     * @param pageFormat
+     * @param pageIndex
+     * @return retourne un int ? Problème non ?
+     * @throws PrinterException 
+     */
     @Override
     public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
             
